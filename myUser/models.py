@@ -6,3 +6,11 @@ class UserRole(models.Model):
     roleName=models.CharField(max_length=200,default="")
     isActive=models.BooleanField(default=True)
 
+class UserSignup(models.Model):
+    roleId=models.ForeignKey(UserRole,on_delete=models.CASCADE)
+    userFullName=models.CharField(max_length=200,default="")
+    userEmail=models.CharField(primary_key=True,max_length=200,default="")
+    userPassword=models.CharField(max_length=200,default="")
+    userMobile=models.BigIntegerField()
+    userAddress=models.CharField(max_length=200,default="")
+    isActive=models.BooleanField(default=True)
