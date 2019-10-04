@@ -13,7 +13,7 @@
 
 -- Dumping data for table schoolmanagement.myuser_userrole: ~1 rows (approximately)
 /*!40000 ALTER TABLE `myuser_userrole` DISABLE KEYS */;
-INSERT INTO `myuser_userrole` (`roleId`, `roleName`, `isActive`) VALUES
+REPLACE INTO `myuser_userrole` (`roleId`, `roleName`, `isActive`) VALUES
 	(1, 'manager', 1);
 /*!40000 ALTER TABLE `myuser_userrole` ENABLE KEYS */;
 
