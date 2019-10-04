@@ -1,7 +1,7 @@
 import smtplib,random,string
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import
+import datetime as dt
 
 def sendemail(sub,receiver,message):
     msg=MIMEMultipart()
@@ -23,8 +23,15 @@ def sendemail(sub,receiver,message):
     finally:
         server.quit()
 
-sub = 'testing'
-receiver = 'truepbx247@gnmail.com'
-message = 'Hello'
-sendemail(sub,receiver,message)
+# sub = 'testing'
+# receiver = 'truepbx247@gnmail.com'
+# message = 'Hello'
+# sendemail(sub,receiver,message)
 
+
+def OtpSend(length=2):
+    letter=string.ascii_letters
+    a=random.randint(10000,100000)
+    otp = str(a).join(random.choice(letter) for i in range(length))
+    x = str( dt.datetime.now() )
+    return (otp,x)

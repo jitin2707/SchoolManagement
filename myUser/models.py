@@ -13,4 +13,8 @@ class UserSignup(models.Model):
     userPassword=models.CharField(max_length=200,default="")
     userMobile=models.BigIntegerField()
     userAddress=models.CharField(max_length=200,default="")
+    userOTP = models.CharField(max_length=200,default="")
+    otpTime = models.CharField(max_length=200,default="")
+    confirmationLink= models.CharField(max_length=200,default="")
+    isVerified=models.BooleanField(default=False)
     isActive=models.BooleanField(default=True)
