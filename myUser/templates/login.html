@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="signform1" >
+<form  method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+    <div class="formheading" ><label><h1>Sign Up Form</h1></label></div>
+
+    <div class="form-group">
+    <label >Username</label>
+    <input type="text" class="form-control" id="l1" name="l1"><br>
+    </div>
+    <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" id="l2" name="l2"><br>
+    </div>
+    <input type="submit" value="Login" id="b1" name="b1">
+
+</form>
+
+    </div>
+<div>
+    {% if wrongem %}
+    <div> Wrong Email</div>
+    {% endif %}
+</div>
+<div>
+    {% if wrongpw %}
+    <div> Wrong Password</div>
+    {% endif %}
+</div>
+
+{% endblock %}
+

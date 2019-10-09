@@ -25,5 +25,7 @@ from myUser import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^signup/$',views.usersignup),
-    url(r'^verifyuser/$',views.verify)
+    url(r'^verifyuser/$',views.verify),
+    url(r'^login/$',views.login),
+    url(r'^manager/$',views.manager),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

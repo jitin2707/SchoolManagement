@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from miscellaneous import emailsend,myconstants
 from authorize import authcheck
 from myUser.forms import UserSignupForm
@@ -13,7 +13,7 @@ def usersignup(request):
         f = form.save(commit=False)
         f.userEmail=request.POST['t3']
         f.userFullName=request.POST['t1']
-        f.userPassword = request.POST['p1']
+        f.userPassword = make_password(request.POST['p1'])
         f.userMobile = request.POST['t2']
         f.userState = request.POST['t4']
         otp, time = emailsend.OtpSend()
@@ -58,4 +58,23 @@ def verify(request):
 
 def login(request):
     if request.method == "POST" :
-        email=
+        email=request.POST["l1"]
+        password = request.POST["l2"]
+        try :
+            data=UserSignup.objects.get(userEmail=email)
+            dbpassword = data.userPassword
+            auth = check_password(password,dbpassword)
+            if auth == True :
+                request.session['Authentication']=True
+                request.session['emailid']=email
+                request.session['roleid']=data.roleId_id
+                return redirect("/manager/")
+            else :
+                return render(request,"login.html",{'wrongpw':True})
+        except :
+            return render(request,"login.html",{'wrongem':True})
+    return render(request,"login.html")
+
+
+def manager(request):
+    return render(request,"manager.html")
