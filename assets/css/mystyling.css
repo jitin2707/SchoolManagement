@@ -1,0 +1,14 @@
+.signform1
+{
+    border:2px solid black;
+    margin:10px;
+    height:480px;
+    width:480px;
+    padding:10px;
+    background-color:pink;
+}
+
+.formheading
+{
+    background-color:grey;
+}

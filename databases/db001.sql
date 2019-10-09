@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table schoolmanagement.django_migrations: ~18 rows (approximately)
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
@@ -217,7 +217,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 	(15, 'myUser', '0001_initial', '2019-10-03 04:30:38'),
 	(16, 'myUser', '0002_usersignp', '2019-10-03 17:24:22'),
 	(17, 'myUser', '0003_auto_20191003_2255', '2019-10-03 17:25:34'),
-	(18, 'myUser', '0004_auto_20191004_0935', '2019-10-04 04:05:43');
+	(18, 'myUser', '0004_auto_20191004_0935', '2019-10-04 04:05:43'),
+	(19, 'myUser', '0005_auto_20191007_0957', '2019-10-07 04:28:06');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 
 -- Dumping structure for table schoolmanagement.django_session
@@ -255,13 +256,14 @@ CREATE TABLE IF NOT EXISTS `myuser_usersignup` (
   `userEmail` varchar(200) NOT NULL,
   `userPassword` varchar(200) NOT NULL,
   `userMobile` bigint(20) NOT NULL,
-  `userAddress` varchar(200) NOT NULL,
+  `userState` varchar(200) NOT NULL,
   `isActive` tinyint(1) NOT NULL,
   `roleId_id` int(11) NOT NULL,
-  `confirmationLink` varchar(200) NOT NULL,
+  `confirmationLink` varchar(2000) NOT NULL,
   `isVerified` tinyint(1) NOT NULL,
   `otpTime` varchar(200) NOT NULL,
   `userOTP` varchar(200) NOT NULL,
+  `userToken` varchar(2000) NOT NULL,
   PRIMARY KEY (`userEmail`),
   KEY `myUser_usersignp_roleId_id_9cb6f7e2_fk_myUser_userrole_roleId` (`roleId_id`),
   CONSTRAINT `myUser_usersignp_roleId_id_9cb6f7e2_fk_myUser_userrole_roleId` FOREIGN KEY (`roleId_id`) REFERENCES `myuser_userrole` (`roleId`)
@@ -269,8 +271,9 @@ CREATE TABLE IF NOT EXISTS `myuser_usersignup` (
 
 -- Dumping data for table schoolmanagement.myuser_usersignup: ~1 rows (approximately)
 /*!40000 ALTER TABLE `myuser_usersignup` DISABLE KEYS */;
-INSERT INTO `myuser_usersignup` (`userFullName`, `userEmail`, `userPassword`, `userMobile`, `userAddress`, `isActive`, `roleId_id`, `confirmationLink`, `isVerified`, `otpTime`, `userOTP`) VALUES
-	('Manoj Kumar', 'manoj.kumar@gmail.com', 'asdfg123#', 9876002081, 'sector 34 , chd', 1, 1, '', 0, '', '');
+INSERT INTO `myuser_usersignup` (`userFullName`, `userEmail`, `userPassword`, `userMobile`, `userState`, `isActive`, `roleId_id`, `confirmationLink`, `isVerified`, `otpTime`, `userOTP`, `userToken`) VALUES
+	('Manoj Kumar', 'manoj.kumar@gmail.com', 'asdfg123#', 9876002081, 'sector 34 , chd', 1, 1, '', 0, '', '', ''),
+	('jitin', 'truepbx247@gmail.com', '3455435sdgfgrgrg', 7838534376, 'Punjab, India', 1, 1, '', 1, '2019-10-07 10:11:52.697504', 't57186l', 'pbkdf2_sha256$100000$KQLvIqLCRBD9$hrUbnUhPBgd/DO5iilL5KR/oM3KRQcaHMOwKhry6g=');
 /*!40000 ALTER TABLE `myuser_usersignup` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

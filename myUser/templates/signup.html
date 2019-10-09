@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="signform1" >
+<form  method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+    <div class="formheading" ><label><h1>Sign Up Form</h1></label></div>
+    <div class="form-row">
+    <div class="form-group">
+    <label >Full Name</label>
+    <input type="text" class="form-control" id="t1" name="t1"><br>
+    </div>
+    <div class="form-group">
+    <label>Mobile</label>
+    <input type="text" class="form-control" id="t2" name="t2"><br>
+    </div></div>
+    <div class="form-row">
+    <div class="form-group">
+    <label>password</label>
+    <input type="password" class="form-control" id="p1" name="p1"><br>
+    </div>
+    <div class="form-group">
+    <label>email</label>
+    <input type="text" id="t3" class="form-control" name="t3"><br>
+    </div></div>
+    <div class="form-group">
+    <label>State</label>
+    <input type="text" id="t4" class="form-control" name="t4"><br>
+    </div>
+    <input type="submit" value="insert-data" id="b1" name="b1">
+
+</form>
+
+    </div>
+<div>
+    {% if success %}
+    <script type="text/javascript">
+        alert("Successfully Registered")
+    </script>
+    {% endif %}
+</div>
+
+{% endblock %}
+
