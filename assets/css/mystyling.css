@@ -5,10 +5,11 @@
     height:480px;
     width:480px;
     padding:10px;
-    background-color:pink;
+    background-image:url("images/schoolimage1.jpg");
 }
 
 .formheading
 {
     background-color:grey;
+
 }
