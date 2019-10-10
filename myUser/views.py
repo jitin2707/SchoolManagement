@@ -90,9 +90,9 @@ def manager(request):
             if message == "Invalid_User":
                 return redirect("/unauthorisec_access/")
             elif message == "not_login" :
-                return redirect("/notlogin/")
+                return redirect("/error404/")
     except:
-        return redirect("/notlogin/")
+        return redirect("/error404/")
 
 def error404(request):
     return render(request,"ERROR404.html")
