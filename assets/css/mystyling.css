@@ -1,11 +1,12 @@
 .signform1
 {
+
     border:2px solid black;
     margin:10px;
     height:480px;
     width:480px;
     padding:10px;
-    background-image:url("images/schoolimage1.jpg");
+    background-image:url( "/assets/images/schoolimage1.jpg" );
 }
 
 .formheading
@@ -13,3 +14,9 @@
     background-color:grey;
 
 }
+/*
+.b1
+{
+ background-image:url("/assets/images/buttonsubmit.png");
+}
+*/
