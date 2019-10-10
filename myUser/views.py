@@ -5,6 +5,7 @@ from myUser.forms import UserSignupForm
 from myUser.models import UserSignup
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.hashers import make_password,check_password
+from authorize import authcheck
 
 # Create your views here.
 def usersignup(request):
@@ -65,10 +66,13 @@ def login(request):
             dbpassword = data.userPassword
             auth = check_password(password,dbpassword)
             if auth == True :
-                request.session['Authentication']=True
-                request.session['emailid']=email
-                request.session['roleid']=data.roleId_id
-                return redirect("/manager/")
+                if data.isVerified == True :
+                    request.session['Authentication']=True
+                    request.session['emailid']=email
+                    request.session['roleid']=data.roleId_id
+                    return redirect("/manager/")
+                else :
+                    return render(request,"login.html",{'notverified':True})
             else :
                 return render(request,"login.html",{'wrongpw':True})
         except :
@@ -77,4 +81,18 @@ def login(request):
 
 
 def manager(request):
-    return render(request,"manager.html")
+    try:
+        authdata = authcheck.authentication(request.session['Authentication'],request.session['roleid'],myconstants.MANAGER)
+        if authdata== True :
+            return render(request,"manager.html")
+        else :
+            authinfo,message = authdata
+            if message == "Invalid_User":
+                return redirect("/unauthorisec_access/")
+            elif message == "not_login" :
+                return redirect("/notlogin/")
+    except:
+        return redirect("/notlogin/")
+
+def error404(request):
+    return render(request,"ERROR404.html")

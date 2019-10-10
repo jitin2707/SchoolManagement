@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^verifyuser/$',views.verify),
     url(r'^login/$',views.login),
     url(r'^manager/$',views.manager),
+url(r'^error404/$',views.error404),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
