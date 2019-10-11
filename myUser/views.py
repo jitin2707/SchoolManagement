@@ -96,3 +96,13 @@ def manager(request):
 
 def error404(request):
     return render(request,"ERROR404.html")
+
+
+def logout(request):
+    try :
+        request.session.pop("Authentication")
+        request.session.pop("emailid")
+        request.session.pop("roleid")
+        return redirect("/login/")
+    except :
+        return redirect("/login/")
