@@ -32,4 +32,5 @@ urlpatterns = [
 
     url(r'^error404/$',views.error404),
     url(r'^logout/$',views.logout),
+    url(r'^index/$',views.index),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
