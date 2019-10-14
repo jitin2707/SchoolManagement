@@ -1,38 +1,310 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eng">
+
 <head>
-    <link type="text/css" rel="stylesheet" href="/assets/css/mystyling.css">
-    <link type="text/css" rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css" >
-    <meta charset="UTF-8">
-    <title>Base</title>
+    <title>Home</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Promote Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- //Meta tag Keywords -->
+
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="/assets/homecss/bootstrap.css">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="/assets/homecss/style.css" type="text/css" media="all" />
+	  <link rel="stylesheet" href="/assets/homecss/slider.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="/assets/homefonts/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+   <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- //Fonts -->
 </head>
 <body>
-<div class="container-fluid">
-<div class = "row">
- <ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">About Us</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
+   <!-- header -->
+<header>
+	<div class="container">
+		<!-- nav -->
+		<nav class="py-3 d-lg-flex">
+			<div id="logo">
+				<h1> <img src="/assets/homeimages/schoollogo.png" height="50px" width="50px"><span class="fa fa-rocket"></span> webmaX  </h1>
+			</div>
+			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+			<input type="checkbox" id="drop" />
+			<ul class="menu ml-auto mt-1">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li class=""><a href="#about">About Us</a></li>
+				<li class=""><a href="#gallery">Gallery</a></li>
+				<li class=""><a href="#admission">Admission</a></li>
+				<li class=""><a href="#contact">Contact</a></li>
+				<li class="last-grid"><a href="login.html">Login</a></li>
+			</ul>
+		</nav>
+		<!-- //nav -->
+	</div>
+</header>
+<!-- //header -->
 
-<div >
-    {% block content %}
-    {% endblock %}
+
+<!-- banner -->
+<div class="banner" id="home">
+	<div class="layer">
+		<div class="container">
+			<div class="banner-text-w3pvt">
+				<!-- banner slider-->
+				<div class="csslider infinity" id="slider1">
+					<input type="radio" name="slides" checked="checked" id="slides_1" />
+					<input type="radio" name="slides" id="slides_2" />
+					<input type="radio" name="slides" id="slides_3" />
+					<ul class="banner_slide_bg">
+						<li>
+							<div class="w3ls_banner_txt">
+
+								<h3 class="b-w3ltxt text-capitalize mt-md-4">School Management System</h3>
+
+								<a href="#about" class="btn btn-banner my-sm-3 mr-2">Read More</a>
+
+							</div>
+						</li>
+						<li>
+							<div class="w3ls_banner_txt">
+								<h3 class="b-w3ltxt text-capitalize mt-md-4">Best platform to achieve your dreams</h3>
+
+								<a href="#about" class="btn btn-banner my-sm-3 mr-2">Read More</a>
+
+							</div>
+						</li>
+						<li>
+							<div class="w3ls_banner_txt">
+								<h3 class="b-w3ltxt text-capitalize mt-md-4">Best platform to achieve your dreams</h3>
+
+								<a href="#about" class="btn btn-banner my-sm-3 mr-2">Read More</a>
+
+							</div>
+						</li>
+					</ul>
+					<div class="navigation">
+						<div>
+							<label for="slides_1"></label>
+							<label for="slides_2"></label>
+							<label for="slides_3"></label>
+						</div>
+					</div>
+				</div>
+				<!-- //banner slider-->
+			</div>
+		</div>
+	</div>
 </div>
+<!-- //banner -->
+<!-- about -->
+<section class="services py-5" id="services">
+	<div class="container py-md-5 py-3">
+	  <h5 class="heading mb-2">Exclusive Services</h5>
+		<h3 class="heading  mb-5">To make our students well-rounded and self-dependent individuals,
+			by inculcation in them a passion for life-long learning, compassion and respect for others
+			and a set of requisite skills and qualities so that they can make a positive contribution to society</h3>
+
+	</div>
+</section>
+<!-- //about bottom -->
+<!-- team -->
+<section class="team py-5" id="team">
+	<div class="container py-md-5 py-3">
+		<div class="title-desc text-center">
+			<h5 class="heading heading1 mb-2"> Our Team</h5>
+		<h3 class="heading heading1 mb-sm-5 mb-3">Our Expert Minds</h3>
+		</div>
+		<div class="row team-grid">
+			<div class="col-lg-3 col-sm-6 mb-4">
+				<div class="box13">
+					<img src="images/team1.jpg" class="img-fluid img-thumbnail" alt="" />
+					<div class="box-content">
+						<h3 class="title">robert</h3>
+						<span class="post">business planer</span>
+						<ul class="social">
+							<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+							<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6 mb-4">
+				<div class="box13">
+					<img src="images/team2.jpg" class="img-fluid img-thumbnail" alt="" />
+					<div class="box-content">
+						<h3 class="title">pollard</h3>
+						<span class="post">business dealer</span>
+						<ul class="social">
+							<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+							<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6 mb-4">
+				<div class="box13">
+					<img src="images/team3.jpg" class="img-fluid img-thumbnail" alt="" />
+					<div class="box-content">
+						<h3 class="title">billings</h3>
+						<span class="post">business manager</span>
+						<ul class="social">
+							<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+							<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6 mb-4">
+				<div class="box13">
+					<img src="images/team4.jpg" class="img-fluid img-thumbnail" alt="" />
+					<div class="box-content">
+						<h3 class="title">bravo</h3>
+						<span class="post">sales manager</span>
+						<ul class="social">
+							<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+							<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //team -->
+
+<!-- portfolio -->
+<section class="portfolio py-5" id="gallery">
+	<div class="container py-md-5 py-3">
+	<h5 class="heading mb-2">Campus</h5>
+		<h3 class="heading mb-sm-5 mb-3">Our Campus</h3>
+		<div class="row news-grids text-center">
+			<div class="col-md-3 col-6 gal-img">
+				<a href="#gal1"><img src="/assets/homeimages/g1.jpg" alt="campus image" class="img-fluid"></a>
+			</div>
+			<div class="col-md-3 col-6 gal-img">
+				<a href="#gal2"><img src="/assets/homeimages/g2.jpg" alt="campus image" class="img-fluid"></a>
+			</div>
+			<div class="col-md-3 col-6 gal-img">
+				<a href="#gal3"><img src="/assets/homeimages/g3.jpg" alt="campus image" class="img-fluid"></a>
+			</div>
+			<div class="col-md-3 col-6 gal-img">
+				<a href="#gal4"><img src="/assets/homeimages/g4.jpg" alt="campus image" class="img-fluid"></a>
+			</div>
+			<div class="col-md-3 col-6 gal-img">
+				<a href="#gal5"><img src="/assets/homeimages/g5.jpg" alt="campus image" class="img-fluid"></a>
+			</div>
+			<div class="col-md-3 col-6 gal-img">
+				<a href="#gal6"><img src="/assets/homeimages/g6.jpg" alt="campus image" class="img-fluid"></a>
+			</div>
+			<div class="col-md-3 col-6 gal-img">
+				<a href="#gal7"><img src="/assets/homeimages/g7.jpg" alt="campus image" class="img-fluid"></a>
+			</div>
+			<div class="col-md-3 col-6 gal-img">
+				<a href="#gal8"><img src="/assets/homeimages/g8.jpg" alt="campus image" class="img-fluid"></a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Contact page -->
+<section class="contact py-5" id="contact">
+	<div class="container py-md-5 py-5">
+	<h5 class="heading mb-2">Contact Us</h5>
+		<h3 class="heading mb-sm-5 mb-3"> CONTACT US</h3>
+		<div class="row contact_information">
+			<div class="col-md-6 contact_left">
+				<div class="contact_border p-4">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.8572951682695!2d76.76735741513119!3d30.72241198164071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fedadf15ec919%3A0x4491d81712a74315!2sNetmax%20Technology!5e0!3m2!1sen!2sin!4v1571032422822!5m2!1sen!2sin"></iframe>
+				</div>
+			</div>
+			<div class="col-md-6 mt-md-0 mt-4">
+				<div class="contact_right p-lg-5 p-4">
+					<form action="#" method="post">
+						<div class="w3_agileits_contact_left">
+							<h3 class="mb-3">Contact form</h3>
+							<input type="text" name="Name" placeholder="Your Name" required="">
+							<input type="email" name="Email" placeholder="Your Email" required="">
+							<input type="text" name="Phone" placeholder="Phone Number" required="">
+							<textarea placeholder="Your Message Here..." required=""></textarea>
+						</div>
+						<div class="w3_agileits_contact_right">
+							<button type="submit" >Submit</button>
+						</div>
+						<div class="clearfix"> </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //Contact page -->
+
+<!-- footer -->
+<footer class="py-md-5 py-3">
+	<div class="container py-md-5 py-3">
+		<div class="row footer-grids">
+			<div class="col-lg-3 col-sm-6 mb-lg-0 mb-sm-5 mb-4">
+				<h4 class="mb-4">Promote</h4>
+				<p class="mb-3">Onec Consequat sapien ut cursus rhoncus. Nullam dui mi, vulputate ac metus semper quis luctus sed.</p>
+
+			</div>
+			<div class="col-lg-3 col-sm-6 mb-md-0 mb-sm-5 mb-4">
+				<h4 class="mb-4">Address Info</h4>
+				<p><span class="fa mr-2 fa-map-marker"></span>6d canal street TT 3356 <span>Newyork.</span></p>
+				<p class="phone py-2"><span class="fa mr-2 fa-phone"></span> +1(12) 123 456 789 </p>
+				<p><span class="fa mr-2 fa-envelope"></span><a href="mailto:info@example.com">info@example.com</a></p>
+			</div>
+			<div class="col-lg-2 col-sm-6 mb-lg-0 mb-sm-5 mb-4">
+				<h4 class="mb-4">Quick Links</h4>
+				<ul>
+					<li><a href="#register">Register here </a></li>
+					<li class="my-2"><a href="#team">Business Team</a></li>
+					<li><a href="#contact">Support Helpline</a></li>
+					<li class="mt-2"><a href="#">Privacy Policy</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-4 col-sm-6">
+				<h4 class="mb-4">Subscribe Us</h4>
+				<p class="mb-3">Subscribe to our newsletter</p>
+				<form action="#" method="post" class="d-flex">
+					<input type="email" id="email" name="EMAIL" placeholder="Enter your email here" required="">
+					<button type="submit" class="btn">Subscribe</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- //footer -->
+
+<!-- copyright -->
+<div class="copyright">
+	<div class="container py-4">
+		<div class=" text-center">
+			<p>© 2019 All Rights Reserved | Design by  webmaX </p>
+		</div>
+	</div>
+</div>
+<!-- //copyright -->
+
+<!-- move top -->
+<div class="move-top text-right">
+	<a href="#home" class="move-top">
+		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+	</a>
+</div>
+<!-- move top -->
+
 
 
 </body>
-
 </html>
-    <script src="/assets/js/jquerymain.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="/assets/js/bootstrap/bootstrap.min.js" ></script>
