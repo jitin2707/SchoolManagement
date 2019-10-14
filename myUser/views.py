@@ -8,6 +8,8 @@ from django.contrib.auth.hashers import make_password,check_password
 from authorize import authcheck
 
 # Create your views here.
+def base(request):
+    return render(request,"base.html")
 def usersignup(request):
     if request.method=="POST":
         form = UserSignupForm(request.POST)
