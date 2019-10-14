@@ -42,4 +42,9 @@ def manager(request):
     except:
         return redirect("/error404/")
 
+def managerprofile(request):
+    emailid = request.session['emailid']
+    data = UserSignup.objects.get(userEmail = emailid)
+    return render(request,"profile.html",{'d':data})
+
 
