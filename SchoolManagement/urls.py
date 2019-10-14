@@ -20,14 +20,16 @@ from myUser import views
 from django.conf.urls import url,include
 from django.conf import settings
 from django.conf.urls.static import static
-from myUser import views
+
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^signup/$',views.usersignup),
     url(r'^verifyuser/$',views.verify),
     url(r'^login/$',views.login),
-    url(r'^manager/$',views.manager),
+    url(r'^manager/',include('manager.urls')),
+
     url(r'^error404/$',views.error404),
-    url(r'^logout/$',views.logout)
+    url(r'^logout/$',views.logout),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
