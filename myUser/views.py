@@ -82,22 +82,9 @@ def login(request):
     return render(request,"login.html")
 
 
-def manager(request):
-    try:
-        authdata = authcheck.authentication(request.session['Authentication'],request.session['roleid'],myconstants.MANAGER)
-        if authdata== True :
-            return render(request,"manager.html")
-        else :
-            authinfo,message = authdata
-            if message == "Invalid_User":
-                return redirect("/unauthorisec_access/")
-            elif message == "not_login" :
-                return redirect("/error404/")
-    except:
-        return redirect("/error404/")
-
 def error404(request):
-    return render(request,"ERROR404.html")
+    value = request.GET["value"]
+    return render(request,"ERROR404.html",{"d":value})
 
 
 def logout(request):

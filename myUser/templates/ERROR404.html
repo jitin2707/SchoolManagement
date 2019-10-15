@@ -7,16 +7,36 @@
 
     <title>Title</title>
 </head>
-<body>#
+<body>
 <div class="container">
     <div class="row">
         <div class="xs-12 md-6 mx-auto">
             <div id="countUp">
-                <div class="number"><h1>UNAUTHORIZE ACCESS</h1></div>
+
+                {% if d == '1' %}
+                <div class="number"><h1>Session Expired</h1></div>
+                <div class="text"><h1>GO BACK</h1></div>
+                <div class="text"><h1></h1></div>
+                <div class="text"><h1>Click on the Link Below To Login Again</h1></div>
+                <a href="/login/"><img src="/assets/images/backbutton.png"></a>
+                {% endif %}
+
+                {% if d == '2' %}
+                <div class="number"><h1>Invalid Login</h1></div>
                 <div class="text"><h1>GO BACK</h1></div>
                 <div class="text"><h1></h1></div>
                 <div class="text"><h1>CLICK ON THE LINK BELOW</h1></div>
-                <a href="http://127.0.0.1:8000/signup/"><img src="/assets/images/backbutton.png"></a>
+                <a href="/login/"><img src="/assets/images/backbutton.png"></a>
+                {% endif %}
+
+                {% if d == '3' %}
+                <div class="number"><h1>You are not logged In. </h1></div>
+                <div class="text"><h1>GO BACK</h1></div>
+                <div class="text"><h1></h1></div>
+                <div class="text"><h1>CLICK ON THE LINK BELOW</h1></div>
+                <a href="/login/"><img src="/assets/images/backbutton.png"></a>
+                {% endif %}
+
             </div>
         </div>
     </div>

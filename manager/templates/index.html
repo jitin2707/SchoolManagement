@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Augment an Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
+<title>Manager Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -391,119 +391,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														</div>
 													<!--/candile-->
 													
-												<!--/charts-->
-												<div class="charts">
-												  <div class="chrt-inner">
-												    <div class="chrt-bars">
-														<div class="col-md-6 chrt-two">
-														 <h3 class="sub-tittle">Bar Chart </h3>
-															<div id="chart2"></div>
-															<script src="js/fabochart.js"></script>
-															<script>
-															$(document).ready(function () {
-																data = {
-																  '2010' : 300, 
-																  '2011' : 200,
-																  '2012' : 100,
-																  '2013' : 500,
-																  '2014' : 400,
-																  '2015' : 200
-																};
 
-																$("#chart1").faBoChart({
-																  time: 500,
-																  animate: true,
-																  instantAnimate: true,
-																  straight: false,
-																  data: data,
-																  labelTextColor : "#002561",
-																});
-																$("#chart2").faBoChart({
-																  time: 2500,
-																  animate: true,
-																  data: data,
-																  straight: true,
-																  labelTextColor : "#002561",
-																});
-															});
-															</script>
-														</div>
-															<div class="col-md-6 chrt-three">
-															<h3 class="sub-tittle">Error Chart </h3>
-																<div id="chartdiv"></div>	
-																			<script>
-																			   var chart = AmCharts.makeChart( "chartdiv", {
-																					  "type": "serial",
-																					  "theme": "light",
-																					  "dataProvider": [ {
-																						"year": 2005,
-																						"value": 11.5,
-																						"error": 5
-																					  }, {
-																						"year": 2006,
-																						"value": 26.2,
-																						"error": 5
-																					  }, {
-																						"year": 2007,
-																						"value": 30.1,
-																						"error": 5
-																					  }, {
-																						"year": 2008,
-																						"value": 29.5,
-																						"error": 7
-																					  }, {
-																						"year": 2009,
-																						"value": 24.6,
-																						"error": 10
-																					  } ],
-																					  "balloon": {
-																						"textAlign": "left"
-																					  },
-																					  "valueAxes": [ {
-																						"id": "v1",
-																						"axisAlpha": 0
-																					  } ],
-																					  "startDuration": 1,
-																					  "graphs": [ {
-																						"balloonText": "value:<b>[[value]]</b><br>error:<b>[[error]]</b>",
-																						"bullet": "yError",
-																						"bulletSize": 10,
-																						"errorField": "error",
-																						"lineThickness": 2,
-																						"valueField": "value",
-																						"bulletAxis": "v1",
-																						"fillAlphas": 0
-																					  }, {
-																						"bullet": "round",
-																						"bulletBorderAlpha": 1,
-																						"bulletBorderColor": "#FFFFFF",
-																						"lineAlpha": 0,
-																						"lineThickness": 2,
-																						"showBalloon": false,
-																						"valueField": "value"
 
-																					  } ],
-																					  "chartCursor": {
-																						"cursorAlpha": 0,
-																						"cursorPosition": "mouse",
-																						"graphBulletSize": 1,
-																						"zoomable": false
-																					  },
-																					  "categoryField": "year",
-																					  "categoryAxis": {
-																						"gridPosition": "start",
-																						"axisAlpha": 0
-																					  },
-																					  "export": {
-																						"enabled": true
-																					  }
-																					} );
-																			</script>
-															
-																	
-																</div>
-																<div class="clearfix"> </div>
-															</div>										
 												<!--/float-charts-->
 												<div class="pie">
 														<div class="col-md-6 chrt-two">
@@ -704,250 +593,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														</div>
 																<div class="clearfix"> </div>
 														</div>
-												<div class="area">
-												<div class="col-md-6 chrt-two area">
-															<h3 class="sub-tittle">Line Multi Chart</h3>
-															 <div style="area">
-																	<canvas id="canvas" style="width:100%;height:100%"></canvas>
-																</div>
-																<button id="randomizeData">Randomize Data</button>
-																<script>
-																var randomScalingFactor = function() {
-																	return Math.round(Math.random() * 100 * (Math.random() > 0.5 ? -1 : 1));
-																};
-																var randomColor = function(opacity) {
-																	return 'rgba(' + Math.round(Math.random() * 255) + ',' + Math.round(Math.random() * 255) + ',' + Math.round(Math.random() * 255) + ',' + (opacity || '.3') + ')';
-																};
 
-																var lineChartData = {
-																	labels: ["January", "February", "March", "April", "May", "June", "July"],
-																	datasets: [{
-																		label: "My First dataset",
-																		data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()],
-																		yAxisID: "y-axis-1",
-																	}, {
-																		label: "My Second dataset",
-																		data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()],
-																		yAxisID: "y-axis-2"
-																	}]
-																};
 
-																$.each(lineChartData.datasets, function(i, dataset) {
-																	dataset.borderColor = randomColor(0.4);
-																	dataset.backgroundColor = randomColor(1);
-																	dataset.pointBorderColor = randomColor(0.7);
-																	dataset.pointBackgroundColor = randomColor(0.5);
-																	dataset.pointBorderWidth = 1;
-																});
-
-																console.log(lineChartData);
-
-																window.onload = function() {
-																	var ctx = document.getElementById("canvas").getContext("2d");
-																	window.myLine = Chart.Line(ctx, {
-																		data: lineChartData,
-																		options: {
-																			
-																			hoverMode: 'label',
-																			stacked: false,
-																			scales: {
-																				xAxes: [{
-																					display: true,
-																					gridLines: {
-																						offsetGridLines: false
-																					}
-																				}],
-																				yAxes: [{
-																					type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-																					display: true,
-																					position: "left",
-																					id: "y-axis-1",
-																				}, {
-																					type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-																					display: true,
-																					position: "right",
-																					id: "y-axis-2",
-
-																					// grid line settings
-																					gridLines: {
-																						drawOnChartArea: false, // only want the grid lines for one axis to show up
-																					},
-																				}],
-																			}
-																		}
-																	});
-																};
-
-																$('#randomizeData').click(function() {
-																	lineChartData.datasets[0].data = [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()];
-
-																	lineChartData.datasets[1].data = [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()];
-
-																	window.myLine.update();
-																});
-																</script>
-																<script src="js/Chart.js"></script>
-															</div>
-															<div class="col-md-6 chrt-three">
-															<h3 class="sub-tittle">Stacked bar chart</h3>
-															    <div id="chartdiv1"></div>	
-																
-																<script>
-																var chart = AmCharts.makeChart("chartdiv1", {
-																				  "type": "serial",
-																				  "theme": "light",
-																				  "rotate": true,
-																				  "marginBottom": 50,
-																				  "dataProvider": [{
-																					"age": "85+",
-																					"male": -0.1,
-																					"female": 0.3
-																				  }, {
-																					"age": "80-54",
-																					"male": -0.2,
-																					"female": 0.3
-																				  }, {
-																					"age": "75-79",
-																					"male": -0.3,
-																					"female": 0.6
-																				  }, {
-																					"age": "70-74",
-																					"male": -0.5,
-																					"female": 0.8
-																				  }, {
-																					"age": "65-69",
-																					"male": -0.8,
-																					"female": 1.0
-																				  }, {
-																					"age": "60-64",
-																					"male": -1.1,
-																					"female": 1.3
-																				  }, {
-																					"age": "55-59",
-																					"male": -1.7,
-																					"female": 1.9
-																				  }, {
-																					"age": "50-54",
-																					"male": -2.2,
-																					"female": 2.5
-																				  }, {
-																					"age": "45-49",
-																					"male": -2.8,
-																					"female": 3.0
-																				  }, {
-																					"age": "40-44",
-																					"male": -3.4,
-																					"female": 3.6
-																				  }, {
-																					"age": "35-39",
-																					"male": -4.2,
-																					"female": 4.1
-																				  }, {
-																					"age": "30-34",
-																					"male": -5.2,
-																					"female": 4.8
-																				  }, {
-																					"age": "25-29",
-																					"male": -5.6,
-																					"female": 5.1
-																				  }, {
-																					"age": "20-24",
-																					"male": -5.1,
-																					"female": 5.1
-																				  }, {
-																					"age": "15-19",
-																					"male": -3.8,
-																					"female": 3.8
-																				  }, {
-																					"age": "10-14",
-																					"male": -3.2,
-																					"female": 3.4
-																				  }, {
-																					"age": "5-9",
-																					"male": -4.4,
-																					"female": 4.1
-																				  }, {
-																					"age": "0-4",
-																					"male": -5.0,
-																					"female": 4.8
-																				  }],
-																				  "startDuration": 1,
-																				  "graphs": [{
-																					"fillAlphas": 0.8,
-																					"lineAlpha": 0.2,
-																					"type": "column",
-																					"valueField": "male",
-																					"title": "Male",
-																					"labelText": "[[value]]",
-																					"clustered": false,
-																					"labelFunction": function(item) {
-																					  return Math.abs(item.values.value);
-																					},
-																					"balloonFunction": function(item) {
-																					  return item.category + ": " + Math.abs(item.values.value) + "%";
-																					}
-																				  }, {
-																					"fillAlphas": 0.8,
-																					"lineAlpha": 0.2,
-																					"type": "column",
-																					"valueField": "female",
-																					"title": "Female",
-																					"labelText": "[[value]]",
-																					"clustered": false,
-																					"labelFunction": function(item) {
-																					  return Math.abs(item.values.value);
-																					},
-																					"balloonFunction": function(item) {
-																					  return item.category + ": " + Math.abs(item.values.value) + "%";
-																					}
-																				  }],
-																				  "categoryField": "age",
-																				  "categoryAxis": {
-																					"gridPosition": "start",
-																					"gridAlpha": 0.2,
-																					"axisAlpha": 0
-																				  },
-																				  "valueAxes": [{
-																					"gridAlpha": 0,
-																					"ignoreAxisWidth": true,
-																					"labelFunction": function(value) {
-																					  return Math.abs(value) + '%';
-																					},
-																					"guides": [{
-																					  "value": 0,
-																					  "lineAlpha": 0.2
-																					}]
-																				  }],
-																				  "balloon": {
-																					"fixedPosition": true
-																				  },
-																				  "chartCursor": {
-																					"valueBalloonsEnabled": false,
-																					"cursorAlpha": 0.05,
-																					"fullWidth": true
-																				  },
-																				  "allLabels": [{
-																					"text": "Male",
-																					"x": "28%",
-																					"y": "97%",
-																					"bold": true,
-																					"align": "middle"
-																				  }, {
-																					"text": "Female",
-																					"x": "75%",
-																					"y": "97%",
-																					"bold": true,
-																					"align": "middle"
-																				  }],
-																				 "export": {
-																					"enabled": true
-																				  }   
-
-																				});
-																		</script>
-																</div>
-																<div class="clearfix"></div>
-												</div>
 													<!--//weather-charts-->
 														<div class="graph-visualization">
 															<div class="col-md-6 map-1">
@@ -1152,84 +799,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														</div>
 
 												<!--//charts-->
-												<div class="area-charts">
-													<div class="col-md-6 panel-chrt">
-													 <h3 class="sub-tittle dyna">Dynamic Speedometer </h3>
-														<div id="wrapper">
-																			<div id="left">
-																				<div>
-																					<label for='miles'>Miles:</label> <input type="text" name="miles" id="miles" />
-																				</div>
-																				<div>
-																					<label for='kilometers'>Kilometers:</label> <input type="text" name="kilometers" id="kilometers" />
-																				</div>
-																				<p id="errmsg"></p>
-																			</div>
 
-																			<div id="gauge">
-																				<div id="circle"></div>
-																				<div id="numbers"></div>
-																				<div id="mi-km"></div>
-																				<div id="needle"></div>
-																				</div>
-																	</div>
-															</div>
-														<div class="col-md-6 tini-time-line">
-														 <h3 class="sub-tittle">Time line </h3>
-															<ul class="timeline">
-																<li>
-																  <div class="timeline-badge info"><i class="fa fa-smile-o"></i></div>
-																  <div class="timeline-panel">
-																	<div class="timeline-heading">
-																	  <h4 class="timeline-title">Title</h4>
-																	</div>
-																	<div class="timeline-body">
-																	  <p>Description...</p>
-																	</div>
-																  </div>
-																</li>
-																
-																<li>
-																  <div class="timeline-badge primary"><i class="fa fa-star-o"></i></div>
-																  <div class="timeline-panel">
-																	<div class="timeline-heading">
-																	  <h4 class="timeline-title">Title</h4>
-																	</div>
-																	<div class="timeline-body">
-																	  <p>Description...</p>
-																	</div>
-																  </div>
-																</li>
-																
-																
-																
-																<li>
-																  <div class="timeline-badge danger"><i class="fa fa-times-circle-o"></i></div>
-																  <div class="timeline-panel">
-																	<div class="timeline-heading">
-																	  <h4 class="timeline-title">Title</h4>
-																	</div>
-																	<div class="timeline-body">
-																	  <p>Description...</p>
-																	</div>
-																  </div>
-																</li>
-																
-																<li>
-																  <div class="timeline-badge success"><i class="fa fa-check-circle-o"></i></div>
-																  <div class="timeline-panel">
-																	<div class="timeline-heading">
-																	  <h4 class="timeline-title">Title</h4>
-																	</div>
-																	<div class="timeline-body">
-																	  <p>Description...</p>
-																	</div>
-																  </div>
-																</li>
-															</ul>
-														</div>
-															<div class="clearfix"></div>		
-													</div>
 										<!--/bottom-grids-->		 
 									<div class="bottom-grids">
 										<div class="dev-table">    
@@ -1291,7 +861,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									 <!--footer section start-->
 										<footer>
-										   <p>&copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
+										   <p>Made by Team Netmax</p>
 										</footer>
 									<!--footer section end-->
 								</div>
@@ -1308,12 +878,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--/down-->
 							<div class="down">	
 									  <a href="index.html"><img src="images/admin.jpg"></a>
-									  <a href="index.html"><span class=" name-caret">Jasmin Leo</span></a>
-									 <p>System Administrator in Company</p>
+									  <a href="index.html"><span class=" name-caret">Hi {{d.userFullName}}</span></a>
+									 <p>Management</p>
 									<ul>
-									<li><a class="tooltips" href="index.html"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
-										<li><a class="tooltips" href="index.html"><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
-										<li><a class="tooltips" href="index.html"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+									<li><a class="tooltips" href="{% url 'manager:mprofile' %}"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+										<li><a class="tooltips" href="{% url 'manager:passch'%}"><span>settings</span><i class="lnr lnr-cog"></i></a></li>
+										<li><a class="tooltips" href="/logout/"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
 										</ul>
 									</div>
 							   <!--//down-->
@@ -1336,14 +906,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<li id="menu-academico-boletim" ><a href="buttons.html">Buttons</a></li>
 											  </ul>
 										 </li>
-									<li><a href="typography.html"><i class="lnr lnr-pencil"></i> <span>Typography</span></a></li>
+									<li><a href="{% url 'manager:passch'%}"><i class="lnr lnr-pencil"></i> <span>Password Change</span></a></li>
 									<li id="menu-academico" ><a href="#"><i class="lnr lnr-book"></i> <span>Pages</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 										  <ul id="menu-academico-sub" >
-										    <li id="menu-academico-avaliacoes" ><a href="login.html">Login</a></li>
+
 										    <li id="menu-academico-boletim" ><a href="register.html">Register</a></li>
-											<li id="menu-academico-boletim" ><a href="404.html">404</a></li>
-											<li id="menu-academico-boletim" ><a href="sign.html">Sign up</a></li>
-											<li id="menu-academico-boletim" ><a href="profile.html">Profile</a></li>
+
+
+											<li id="menu-academico-boletim" ><a href="{% url 'manager:mprofile' %}">Profile</a></li>
 										  </ul>
 									 </li>
 									 <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Mail Box</span><span class="fa fa-angle-right" style="float: right"></span></a>
