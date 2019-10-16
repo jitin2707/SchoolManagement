@@ -36,8 +36,8 @@ CREATE TABLE IF NOT EXISTS `auth_group_permissions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`),
   KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
-  CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table schoolmanagement.auth_group_permissions: ~0 rows (approximately)
@@ -134,8 +134,8 @@ CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`),
   KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`),
-  CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+  CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table schoolmanagement.auth_user_user_permissions: ~0 rows (approximately)
@@ -155,8 +155,8 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`),
   KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
-  CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
-  CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+  CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table schoolmanagement.django_admin_log: ~2 rows (approximately)
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolmanagement.django_migrations: ~18 rows (approximately)
+-- Dumping data for table schoolmanagement.django_migrations: ~19 rows (approximately)
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 	(1, 'contenttypes', '0001_initial', '2019-10-02 12:39:30'),
@@ -230,10 +230,28 @@ CREATE TABLE IF NOT EXISTS `django_session` (
   KEY `django_session_expire_date_a5c62663` (`expire_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolmanagement.django_session: ~1 rows (approximately)
+-- Dumping data for table schoolmanagement.django_session: ~19 rows (approximately)
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-	('jth4lfgufkvrsimw9pt5mq5qab4u2ryl', 'ZDllZDVlYWM5MzQ0NWEzYjgxYzQ1OGUzODdjNDlkNTE3M2RhODk0MDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiMzg4MjUzZWMzMTdkYmQxYzc3MzE1YWM1ODFjZTA4ZDNkM2RlYjAxIn0=', '2019-10-17 17:02:31');
+	('0c5uhkkqbtoh2hseyyu12xa0c7nj7ivw', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-13 08:27:18'),
+	('0n05t01je371j092ug3d2w09hxbh5ub4', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-24 04:27:21'),
+	('195q7h2o9ux4z8h76d3t8zsz6mrxf5lh', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-16 03:19:43'),
+	('39qqzl95ntwma1gdibb3tv9k7ix2pph6', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-15 08:26:00'),
+	('8oegtniardn408tbi1dxpiwejuqesdpb', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-11 03:22:40'),
+	('9kh1feeuaomnarucvgedztpfv162as05', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-14 03:47:52'),
+	('b9zjrwzedddeg184vs99h1nwakkyscvq', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-14 03:41:47'),
+	('butcmiagy0yrdqna9w1xqdc1g4cd52iy', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-15 06:28:51'),
+	('ijz1l60azuz3krcpmqohghu6safoxxox', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-13 08:14:22'),
+	('irz6zoosoir6ojhccwjjefancujuusm9', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-15 06:13:23'),
+	('jth4lfgufkvrsimw9pt5mq5qab4u2ryl', 'NTgyYTgzNjA1Y2RkM2ZjYzA1MDcxMzFiY2RmYmQwOWY3N2JlZmQ1Mzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiMzg4MjUzZWMzMTdkYmQxYzc3MzE1YWM1ODFjZTA4ZDNkM2RlYjAxIiwiQXV0aGVudGljYXRpb24iOnRydWUsImVtYWlsaWQiOiJ0cnVlcGJ4MjQ3QGdtYWlsLmNvbSIsInJvbGVpZCI6MX0=', '2019-10-11 03:15:56'),
+	('kp2v08nb19fno5nvwvo75cilv8b9cp7v', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-14 16:05:28'),
+	('lvibofeuz3c6yshx2bzst01qaau8csqu', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-14 15:57:48'),
+	('peogsvq7oprp6rcnb7m72yx3w0o9vm62', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-15 12:13:41'),
+	('u8b0m3sqo7b0xxfd10fg0k4qh279tmyu', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-13 08:22:49'),
+	('ugoyw2cnltves5cf02sh6eh7y54r16sb', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-24 03:43:25'),
+	('v4oqqvzr002fgla0jixfo0z2wn3eq26m', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-15 08:00:17'),
+	('xfsrejepj7ra4t84ly9zxwdp0uyqo8mk', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-15 10:07:50'),
+	('xpr5j1lgwy9o350qr3fwub3wvi3q7uia', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-14 03:07:14');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 
 -- Dumping structure for table schoolmanagement.myuser_userrole
@@ -269,11 +287,12 @@ CREATE TABLE IF NOT EXISTS `myuser_usersignup` (
   CONSTRAINT `myUser_usersignp_roleId_id_9cb6f7e2_fk_myUser_userrole_roleId` FOREIGN KEY (`roleId_id`) REFERENCES `myuser_userrole` (`roleId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolmanagement.myuser_usersignup: ~1 rows (approximately)
+-- Dumping data for table schoolmanagement.myuser_usersignup: ~3 rows (approximately)
 /*!40000 ALTER TABLE `myuser_usersignup` DISABLE KEYS */;
 INSERT INTO `myuser_usersignup` (`userFullName`, `userEmail`, `userPassword`, `userMobile`, `userState`, `isActive`, `roleId_id`, `confirmationLink`, `isVerified`, `otpTime`, `userOTP`, `userToken`) VALUES
+	('nitin', 'kolishnitin@gmail.com', 'pbkdf2_sha256$100000$Ec8aP8dkuTvt$+rz+VzlbRLFCsmlKqB1/+J4WmlYtrgr4nz5/lihLr0c=', 878787979778, 'Punjab', 1, 1, 'http://127.0.0.1/verifyuser/?email=kolishnitin@gmail.com&token=pbkdf2_sha256$100000$FPiNG9m0owLR$/9aK7mC2ITve82RhEvELgIiPYI/bkk4smFRptgnuTvk=', 0, '2019-10-09 09:56:53.091780', 'b51900B', 'pbkdf2_sha256$100000$FPiNG9m0owLR$/9aK7mC2ITve82RhEvELgIiPYI/bkk4smFRptgnuTvk='),
 	('Manoj Kumar', 'manoj.kumar@gmail.com', 'asdfg123#', 9876002081, 'sector 34 , chd', 1, 1, '', 0, '', '', ''),
-	('jitin', 'truepbx247@gmail.com', '3455435sdgfgrgrg', 7838534376, 'Punjab, India', 1, 1, '', 1, '2019-10-07 10:11:52.697504', 't57186l', 'pbkdf2_sha256$100000$KQLvIqLCRBD9$hrUbnUhPBgd/DO5iilL5KR/oM3KRQcaHMOwKhry6g=');
+	('jitin', 'truepbx247@gmail.com', 'pbkdf2_sha256$100000$I3GfsYPVWWEC$ruJlm3p8Xk2bSI2T24lcKJgVaPBj/BDN6H0nscQTMeg=', 7838534376, 'punjab', 1, 1, '', 1, '2019-10-10 09:10:09.993410', 'v36472q', 'pbkdf2_sha256$100000$sSl67qG8ejGC$qYcVFQsO9Ub4MygvloKg4RYe80J45VUqTXu1dW/dtOI=');
 /*!40000 ALTER TABLE `myuser_usersignup` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
