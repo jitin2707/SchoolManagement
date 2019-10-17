@@ -1,23 +1,20 @@
 {% extends 'index.html' %}
-
 {% block content %}
-
 <div>
     {% if d %}
     <label>Full Name</label>
-    <input type="text" value="{{d.userFullName}}"> <br>
+    <input type="text" value="{{d.userFullName}}"><br>
 
     <label>Email</label>
-    <input type="text" value="{{d.userEmail}}"> <br>
+    <input type="text" value="{{d.userEmail}}"><br>
 
     <label>Mobile Number</label>
-    <input type="text" value="{{d.userMobile}}"> <br>
+    <input type="text" value="{{d.userMobile}}"><br>
 
     <label>State</label>
-    <input type="text" value="{{d.userState}}"> <br>
+    <input type="text" value="{{d.userState}}"><br>
     {% endif %}
-
-
 </div>
-
 {% endblock %}
+
+
