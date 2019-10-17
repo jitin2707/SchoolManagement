@@ -6,14 +6,15 @@
 </head>
 <body  method="POST" enctype="multipart/form-data" >
     {% csrf_token %}
+
     <label>Name :</label>
     <input type="text" id="pn" name="pn"><br>
     <label>Email : </label>
     <input type="email" id="pe" name="pe"><br>
-    <label>Gender : </label>
-    <input type="radio"  name="pg" value="Male"><br>
-    <input type="radio"  name="pg" value="Female"><br>
-    <input type="radio"  name="pg" value="Other"><br>
+    <label>Gender : </label><br>
+    <input type="radio"  name="pg" value="Male">Male<br>
+    <input type="radio"  name="pg" value="Female">Female<br>
+    <input type="radio"  name="pg" value="Other">Others<br>
     <label>Qualifications</label>
     <input type="text" id="pq" name="pq"><br>
     <label>DOB : </label>
@@ -22,6 +23,8 @@
     <input type="text" id="pa" name="pa"><br>
     <label>Mobile :</label>
     <input type="number" id="pno" name="pno"><br>
+    <label>Password :</label>
+    <input type="password" id="pp" name="pp"><br>
     <label>Upload Recent Image :</label>
     <input type="file" id="pi" name="pi"><br>
     <input type="submit" value="Submit">
