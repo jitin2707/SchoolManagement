@@ -7,6 +7,7 @@ from authorize import authcheck
 from myUser.models import UserSignup
 from manager.forms import PrincipleForm
 from myUser.forms import UserSignupForm
+import datetime as dt
 
 def passwordchange(request):
     if request.method=="POST":
@@ -58,48 +59,60 @@ def createprincipal(request):
         f = form.save(commit=False)
         try:
             if request.FILES["img1"]:
-            my_file = request.FILES["img1"]
-            fs = FileSystemStorage()
-            file_name = fs.save(my_file.name, my_file)
-            img1 = fs.url(file_name)
-            img1 = my_file.name
+                my_file = request.FILES["img1"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                img1 = fs.url(file_name)
+                img1 = my_file.name
         except:
             pass
 
         f.name = request.POST["pn"]
         f.email = request.POST["pe"]
         f.gender = make_password(request.POST["pg"])
-        f.qualification = request.POST["t3"]
-        f.password = request.POST["pp"]
+        f.qualification = request.POST["pq"]
+        f.password = make_password(request.POST["pp"])
         f.dob = request.POST["pd"]
-        f.doj = request.POST["t3"]
-        f.address = request.POST["t3"]
-        f.mobile = request.POST["t3"]
-        f.status = request.POST["t3"]
+        x= str(dt.date.today())
+        f.doj = x
+        f.address = request.POST["pa"]
+        f.mobile = request.POST["pm"]
+        # f.status = True
+
         f.session = request.POST["t3"]
-        f.image = request.POST["t3"]
-        f.last_login_time = request.POST["t3"]
-        f.last_login_date = request.POST["t3"]
-        f.last_logout = request.POST["t3"]
-        f.otp = request.POST["t3"]
-        f.otp_date_time = request.POST["t3"]
-        f.verify_link = request.POST["t3"]
+        f.image = img1
+        # f.last_login_time = request.POST["t3"]
+        # f.last_login_date = request.POST["t3"]
+        # f.last_logout = request.POST["t3"]
+        otp,y = emailsend.OtpSend()
+        f.otp = otp
+        f.otp_date_time = y
+        email = request.POST["pe"]
+        token = email[0:5] + request.POST['t2'][4:9] + otp
+        token = make_password(token)
+        token = token.replace("+", "")
+        f.userToken = token
+        confirmationlink = "http://127.0.0.1/verifyuser/?email=" + email + "&token=" + token
+        f.verify_link = confirmationlink
         f.role_id = 2
         f.save()
+     #to update in common signup database
         form1 = UserSignupForm(request.POST)
         f = form1.save(commit=False)
-        f.userFullName= request.POST["t3"]
-        f.userEmail = request.POST["t3"]
-        f.userPassword = request.POST["t3"]
-        f.userMobile = request.POST["t3"]
-        f.userState = request.POST["t3"]
-        f.userOTP = request.POST["t3"]
-        f.otpTime = request.POST["t3"]
-        f.userToken = request.POST["t3"]
-        f.isVerified = request.POST["t3"]
-        f.confirmationLink = request.POST["t3"]
-        f.isActive = request.POST["t3"]
-        f.roleId_id = 1
+        f.userFullName= request.POST["pn"]
+        f.userEmail = request.POST["pe"]
+        f.userPassword = request.POST["pp"]
+        f.userMobile = request.POST["pm"]
+        f.userState = request.POST["pa"]
+        f.userOTP = otp
+        f.otpTime = y
+        f.userToken = token
+        f.isVerified = False
+        f.confirmationLink = confirmationlink
+        f.isActive = True
+        f.roleId_id = 2
+        f.save()
+        emailsend.sendemail("Confirmation Link", email, confirmationlink)
         return render(request, "signup3.html", {'success': True})
     return render(request, "signup3.html")
 
