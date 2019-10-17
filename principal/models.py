@@ -14,7 +14,7 @@ class Principle(models.Model):
     dol = models.CharField(max_length=255,default="",null=True)
     address = models.CharField(max_length=255,default="",null=True)
     mobile = models.CharField(max_length=255,default="",null=True)
-    status = models.NullBooleanField()
+    status = models.NullBooleanField(default=True)
     session = models.CharField(max_length=255,default="",null=True)
     image = models.CharField(max_length=255,default="",null=True)
     last_login_time = models.CharField(max_length=255,default="",null=True)

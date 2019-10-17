@@ -1,1 +1,2 @@
 MANAGER = 1
+PRINCIPAL = 2
