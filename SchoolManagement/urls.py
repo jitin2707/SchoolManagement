@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^verifyuser/$',views.verify),
     url(r'^login/$',views.login),
     url(r'^manager/',include('manager.urls')),
-
+    url(r'^principal/',include('principal.urls')),
     url(r'^error404/$',views.error404),
     url(r'^logout/$',views.logout),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -72,7 +72,10 @@ def login(request):
                     request.session['Authentication']=True
                     request.session['emailid']=email
                     request.session['roleid']=data.roleId_id
-                    return redirect("/manager/home/")
+                    if data.roleId_id == 1:
+                        return redirect("/manager/home/")
+                    elif data.roleId_id == 2 :
+                        return redirect("/principal/home")
                 else :
                     return render(request,"login.html",{'notverified':True})
             else :

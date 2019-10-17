@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^passwordchange/$',views.passwordchange,name="passch"),
     url(r'^home/$',views.manager),
     url(r'^profile/$',views.managerprofile,name="mprofile"),
+    url(r'^addprincipal/$',views.createprincipal,name="addprinci"),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

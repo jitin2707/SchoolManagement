@@ -69,7 +69,7 @@ def createprincipal(request):
 
         f.name = request.POST["pn"]
         f.email = request.POST["pe"]
-        f.gender = make_password(request.POST["pg"])
+        f.gender = request.POST["pg"]
         f.qualification = request.POST["pq"]
         f.password = make_password(request.POST["pp"])
         f.dob = request.POST["pd"]
@@ -78,17 +78,19 @@ def createprincipal(request):
         f.address = request.POST["pa"]
         f.mobile = request.POST["pm"]
         # f.status = True
-
-        f.session = request.POST["t3"]
+        otp, y = emailsend.OtpSend()
+        year =y[0:4]
+        nextyr =int(year)+1
+        session = str(year) + "-" + str(nextyr)
+        f.session = session
         f.image = img1
         # f.last_login_time = request.POST["t3"]
         # f.last_login_date = request.POST["t3"]
         # f.last_logout = request.POST["t3"]
-        otp,y = emailsend.OtpSend()
         f.otp = otp
         f.otp_date_time = y
         email = request.POST["pe"]
-        token = email[0:5] + request.POST['t2'][4:9] + otp
+        token = email[0:5] + request.POST['pm'][4:9] + otp
         token = make_password(token)
         token = token.replace("+", "")
         f.userToken = token
@@ -101,7 +103,7 @@ def createprincipal(request):
         f = form1.save(commit=False)
         f.userFullName= request.POST["pn"]
         f.userEmail = request.POST["pe"]
-        f.userPassword = request.POST["pp"]
+        f.userPassword = make_password(request.POST["pp"])
         f.userMobile = request.POST["pm"]
         f.userState = request.POST["pa"]
         f.userOTP = otp
@@ -113,6 +115,6 @@ def createprincipal(request):
         f.roleId_id = 2
         f.save()
         emailsend.sendemail("Confirmation Link", email, confirmationlink)
-        return render(request, "signup3.html", {'success': True})
-    return render(request, "signup3.html")
+        return render(request, "CreatePrinci.html", {'success': True})
+    return render(request, "CreatePrinci.html")
 

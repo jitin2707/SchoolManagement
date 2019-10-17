@@ -1,3 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,HttpResponse
+from miscellaneous import emailsend,myconstants
+from authorize import authcheck
+from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.hashers import make_password,check_password
+from authorize import authcheck
+from myUser.models import UserSignup
+from manager.forms import PrincipleForm
+from myUser.forms import UserSignupForm
+import datetime as dt
 
-# Create your views here.
+
+def principal(request):
+    try:
+        authdata = authcheck.authentication(request.session['Authentication'],request.session['roleid'],myconstants.PRINCIPAL)
+        if authdata== True :
+            emailid = request.session['emailid']
+            data = UserSignup.objects.get(userEmail=emailid)
+            return render(request,"principal.html",{'d':data})
+        else :
+            authinfo,message = authdata
+            if message == "Invalid_User":
+                return redirect("/error404/?value=2")
+            elif message == "not_login" :
+                return redirect("/error404/?value=3")
+    except:
+        return redirect("/error404/?value=1")
