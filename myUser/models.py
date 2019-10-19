@@ -19,3 +19,11 @@ class UserSignup(models.Model):
     confirmationLink= models.CharField(max_length=2000,default="")
     isVerified=models.BooleanField(default=False)
     isActive=models.BooleanField(default=True)
+
+class LoginRecords(models.Model):
+    id = models.AutoField(primary_key=True)
+    loginTime =models.CharField(max_length=255,default="",null=True)
+    logoutTime = models.CharField(max_length=255,default="",null=True)
+    userEmail = models.CharField(max_length=255,default="",null=True)
+    ipAddress = models.CharField(max_length=255,default="",null=True)
+    macAddress = models.CharField(max_length=255,default="",null=True)
