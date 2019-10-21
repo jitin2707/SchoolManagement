@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Teacher Accounts</title>
+</head>
+<body>
+{% extends 'index.html' %}
+{% block content %}
+<div>
+    <table border="2px" align="center">
+        <tr>
+            <td>
+         Name :  <input type="text" id="tname" name="tname" placeholder="Name here">
+            </td>
+        </tr>
+        <tr>
+            <td>
+        Email :  <input type="email" id="temail" name="temail" required placeholder="Email here">
+                </td>
+        </tr>
+        <tr>
+            <td>
+        Gender : <input type="radio" id="tgenderm" name="tgender" >Male
+                <input type="radio" id="tgenderf" name="tgender">Female
+                <input type="radio" id="tgendero" name="tgender">Others
+            </td>
+        </tr>
+        <tr>
+
+            <td>
+        Password : <input type="password" id="tpassword" name="tpassword" placeholder="password here">
+            </td>
+        </tr>
+        <tr>
+            <td>
+        Date Of Birth : <input type="date" id="tdob" name="tdob" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+        Date Of Joining : <input type="date" id="tdoj" name="tdoj">
+            </td>
+        </tr>
+        <tr>
+            <td>
+        Date Of Leaving : <input type="date" id="tdol" name="tdol">
+            </td>
+        </tr>
+        <tr>
+            <td>
+        Address : <input type="text" id="taddress" name="taddress" placeholder="address here">
+            </td>
+        </tr>
+        <tr>
+            <td>
+        Moblie :  <input type="number" id="tmobile" name="tmobile" placeholder="contact here">
+            </td>
+        </tr>
+        <tr>
+            <td>
+        Status:        <input type="text" id="tstatus" name="tstatus" placeholder="status here">
+            </td>
+            <tr>
+        <td>
+         Session : <input type="date" id="tsession" name="tsession" >
+        </td>
+        </tr>
+
+        <tr>
+            <td>
+        Image :   <input type="file" id="timage" name="timage">
+            </td>
+        </tr>
+        <tr>
+        Joining Date : <input type="date" id="tdate" name="tdate" >
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Submit" >
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+{% endblock %}
+
+</body>
+</html>

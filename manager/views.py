@@ -5,8 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.hashers import make_password,check_password
 from authorize import authcheck
 from myUser.models import UserSignup
-from principal.forms import PrincipleForm
-from principal.models import Principle
+from manager.forms import PrincipleForm,TeacherForm
 from myUser.forms import UserSignupForm
 import datetime as dt
 
@@ -118,4 +117,55 @@ def createprincipal(request):
         emailsend.sendemail("Confirmation Link", email, confirmationlink)
         return render(request, "CreatePrinci.html", {'success': True})
     return render(request, "CreatePrinci.html")
+
+def viewprincipal(request):
+    data = PrincipleForm.objects.all()
+    return render(request,"viewprincipal.html",{'d' : data})
+
+def createteacher(request):
+    if request.method == "POST":
+        form=TeacherForm(request.POST)
+        f=form.save(commit=False)
+        try:
+            if request.FILES["timage"]:
+                my_file = request.FILES["timgae"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                timage = fs.url(file_name)
+                timage= my_file.name
+        except:
+            pass
+        f.name = request.POST["tname"]
+        f.email = request.POST["temail"]
+        f.gender = request.POST["tgender"]
+        f.qualification = request.POST["tqualification"]
+        f.password = request.POST["tpassword"]
+        f.dob = request.POST["tdob"]
+        f.doj = str(dt.date.today())
+        f.dol = request.POST["tdol"]
+        f.address = request.POST["taddress"]
+        f.mobile = request.POST["tmobile"]
+        f.status = request.POST["tstatus"]
+        currentYear=dt.date.today()
+        s=currentYear.year
+        f.session = s
+        f.image = request.POST["timage"]
+        f.last_login_time = dt.datetime.now()
+        f.last_login_date = dt.datetime.today()
+        f.last_logout = dt.datetime.now()
+        f.role = 2
+        otp = emailsend.OtpSend()
+        f.otp_date_time = dt.datetime.now()
+        email = request.POST["temail"]
+        token = email[0:5] + request.POST['tmobile'][4:9] + otp
+        token = make_password(token)
+        token = token.replace("+", "")
+        f.userToken = token
+        confirmationlink = "http://127.0.0.1/verifyuser/?email=" + email + "&token=" + token
+        f.verify_link =confirmationlink
+        f.save()
+        return render(request,"createteacher.html",{'success':True})
+    return render(request,"createteacher.html")
+
+
 
