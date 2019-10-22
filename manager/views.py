@@ -127,6 +127,7 @@ def createteacher(request):
     if request.method == "POST":
         form=TeacherForm(request.POST)
         f=form.save(commit=False)
+        timage=None
         try:
             if request.FILES["timage"]:
                 my_file = request.FILES["timage"]

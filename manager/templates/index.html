@@ -747,119 +747,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																</div>
 																</div>
 															</div>
-															<div class="clearfix"> </div>
-														</div>
 
-																</div>
-
-															</div>
-															<div class="col-md-6 map-2">
-																 <div class="profile-nav alt">
-																	<section class="panel">
-																		<div class="user-heading alt clock-row terques-bg">
-																			<h3 class="sub-tittle clock">Easy Clock </h3>
-																		</div>
-																			<ul id="clock">
-																				<li id="sec"></li>
-																				<li id="hour"></li>
-																				<li id="min"></li>
-																			</ul>
-
-																		<ul class="clock-category">
-																			<li>
-																				<a href="#" class="active">
-																					<img src="images/time.png" alt="">
-																					<span>Clock</span>
-																				</a>
-																			</li>
-																			<li>
-																				<a href="#">
-																					<img src="images/alarm.png" alt="">
-																					<span>Alarm</span>
-																				</a>
-																			</li>
-																			<li>
-																				<a href="#">
-																					<img src="images/watch.png" alt="">
-																					<span>Stop watch</span>
-																				</a>
-																			</li>
-																			<li>
-																				<a href="#">
-																					<img src="images/timer.png" alt="">
-																					<span>Timer</span>
-																				</a>
-																			</li>
-																		</ul>
-
-																	</section>
-
-																</div>
-															</div>
-															<div class="clearfix"> </div>
-														</div>
-
-												<!--//charts-->
-
+                                    <div>
 										<!--/bottom-grids-->		 
-									<div class="bottom-grids">
-										<div class="dev-table">    
-											<div class="col-md-4 dev-col">                                    
 
-                                            <div class="dev-widget dev-widget-transparent">
-                                                <h2 class="inner one">Server Usage</h2>
-                                                <p>Today server usage in percentages</p>                                        
-                                                <div class="dev-stat"><span class="counter">68</span>%</div>                                                                                
-                                                <div class="progress progress-bar-xs">
-                                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
-                                                </div>                                        
-                                                <p>We Todayly recommend you change your plan to <strong>Pro</strong>. Click here to get more details.</p>
-
-                                                <a href="#" class="dev-drop">Take a closer look <span class="fa fa-angle-right pull-right"></span></a>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-4 dev-col mid">                                    
-
-                                            <div class="dev-widget dev-widget-transparent dev-widget-success">
-                                                 <h3 class="inner">Today Earnings</h3>
-                                                <p>This is Today earnings per last year</p>                                        
-                                                <div class="dev-stat">$<span class="counter">75,332</span></div>                                                                                
-                                                <div class="progress progress-bar-xs">
-                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 79%;"></div>
-                                                </div>                                        
-                                                <p>We happy to notice you that you become an Elite customer, and you can get some custom sugar.</p>
-
-                                                <a href="#" class="dev-drop">Take a closer look <span class="fa fa-angle-right pull-right"></span></a>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-4 dev-col">                                    
-
-                                            <div class="dev-widget dev-widget-transparent dev-widget-danger">
-                                                 <h3 class="inner">Your Balance</h3>
-                                                <p>All your earnings for this time</p>
-                                                <div class="dev-stat">$<span class="counter">5,321</span></div>                                                                                
-                                                <div class="progress progress-bar-xs">
-                                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                                                </div>                                        
-                                                <p>You can withdraw this money in end of each month. Also you can spend it on our marketplace.</p>
-
-                                                <a href="#" class="dev-drop">Take a closer look <span class="fa fa-angle-right pull-right"></span></a>                                        
-                                            </div>
-
-                                        </div>
-										<div class="clearfix"></div>		
-										
-										</div>
-										</div>
-									<!--//bottom-grids-->
-									
-									</div>
-									<!--/charts-inner-->
-									</div>
-										<!--//outer-wp-->
-									</div>
 									 <!--footer section start-->
 										<footer>
 										   <p>Made by Team Netmax</p>
@@ -894,7 +785,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										 <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Accounts</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 										   <ul id="menu-academico-sub" >
 											<li id="menu-academico-avaliacoes"><a href="{% url 'manager:addprinci'%}">Principal</a></li>
-											<li id="menu-academico-boletim" ><a href="teacher.html">Teachers</a></li>
+											<li id="menu-academico-boletim" ><a href="{% url 'manager:createteacher'%}">Teachers</a></li>
 
 										  </ul>
 										</li>
