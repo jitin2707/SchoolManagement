@@ -5,6 +5,8 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.hashers import make_password,check_password
 from authorize import authcheck
 from myUser.models import UserSignup
+from principal.models import Principle
+from teacher.models import Teacher
 from manager.forms import PrincipleForm,TeacherForm
 from myUser.forms import UserSignupForm
 import datetime as dt
@@ -16,7 +18,6 @@ def passwordchange(request):
         connewpassword = request.POST["cnp"]
         emailid = request.session['emailid']
         data = UserSignup.objects.get(userEmail=emailid)
-
         auth = check_password(oldpassword, data.userPassword)
         if auth == True :
             if newpassword == connewpassword :
@@ -55,7 +56,7 @@ def managerprofile(request):
 
 def createprincipal(request):
     if request.method == "POST":
-        form =PrincipleForm(request.POST)
+        form = PrincipleForm(request.POST)
         f = form.save(commit=False)
         try:
             if request.FILES["img1"]:
@@ -119,8 +120,8 @@ def createprincipal(request):
     return render(request, "CreatePrinci.html")
 
 def viewprincipal(request):
-    data = PrincipleForm.objects.all()
-    return render(request,"viewprincipal.html",{'d' : data})
+    data = Principle.objects.all()
+    return render(request,"viewprincipal.html",{'d': data})
 
 def createteacher(request):
     if request.method == "POST":
@@ -128,7 +129,7 @@ def createteacher(request):
         f=form.save(commit=False)
         try:
             if request.FILES["timage"]:
-                my_file = request.FILES["timgae"]
+                my_file = request.FILES["timage"]
                 fs = FileSystemStorage()
                 file_name = fs.save(my_file.name, my_file)
                 timage = fs.url(file_name)
@@ -149,7 +150,7 @@ def createteacher(request):
         currentYear=dt.date.today()
         s=currentYear.year
         f.session = s
-        f.image = request.POST["timage"]
+        f.image = timage
         f.last_login_time = dt.datetime.now()
         f.last_login_date = dt.datetime.today()
         f.last_logout = dt.datetime.now()
@@ -166,6 +167,11 @@ def createteacher(request):
         f.save()
         return render(request,"createteacher.html",{'success':True})
     return render(request,"createteacher.html")
+
+
+
+
+
 
 
 

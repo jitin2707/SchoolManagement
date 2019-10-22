@@ -7,6 +7,9 @@
 <body>
 {% extends 'index.html' %}
 {% block content %}
+{% if success %}
+<script>alert("Data added successfully")</script>
+{% endif %}
 <div>
     <table border="2px" align="center">
         <tr>

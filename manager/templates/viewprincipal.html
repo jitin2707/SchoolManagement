@@ -6,25 +6,44 @@
 </head>
 <body>
 {% extends 'index.html' %}
+{% csrf_token %}
 {% block content %}
-<div class="container">
+<div >
     <table border="2px" height="500px" width="400px">
         <tr>
-            <td>{{d.name}}</td>
-            <td>{{d.email}}</td>
-            <td>{{d.gender}}</td>
-            <td>{{d.qualification}}</td>
-            <td>{{d.dob}}</td>
-            <td>{{d.doj}}</td>
-            <td>{{d.dol}}</td>
-            <td>{{d.userAddress}}</td>
-            <td>{{d.userMobile}}</td>
-            <td>{{d.userImage}}</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Gender</td>
+            <td>Qualification</td>
+            <td>DOB</td>
+            <td>DOJ</td>
+            <td>DOL</td>
+            <td>Address</td>
+            <td>Mobile</td>
+            <td>Image</td>
 
         </tr>
+        {% if d %}
+        {% for i in d %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.gender}}</td>
+            <td>{{i.qualification}}</td>
+            <td>{{i.dob}}</td>
+            <td>{{i.doj}}</td>
+            <td>{{i.dol}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.mobile}}</td>
+            <td>{{i.image}}</td>
+
+        </tr>
+        {% endfor %}
+        {% endif %}
     </table>
 
 </div>
 {% endblock %}
+
 </body>
 </html>
