@@ -165,7 +165,7 @@ def createteacher(request):
         f.last_login_time = dt.datetime.now()
         f.last_login_date = dt.datetime.today()
         f.last_logout = dt.datetime.now()
-        f.role = 2
+        f.role_id = 3
         otp = emailsend.OtpSend()
         f.otp_date_time = dt.datetime.now()
         email = request.POST["temail"]

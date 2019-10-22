@@ -12,6 +12,8 @@
 {% endif %}
 <div>
     <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
     <table border="2px" width="400px" align="center">
         <tr>
             <td>
@@ -31,8 +33,13 @@
             </td>
         </tr><br>
         <tr>
-
             <td>
+                Qualification:<input type="text" id="tqualification" name="tqualification"><br><br>
+            </td>
+        </tr>
+        <tr>
+
+                        <td>
         Password : <input type="password" id="tpassword" name="tpassword" placeholder="password here"><br><br>
             </td>
         </tr>
