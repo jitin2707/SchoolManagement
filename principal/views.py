@@ -5,7 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.hashers import make_password,check_password
 from authorize import authcheck
 from myUser.models import UserSignup
-from manager.forms import PrincipleForm
+from principal.forms import PrincipleForm
 from myUser.forms import UserSignupForm
 import datetime as dt
 

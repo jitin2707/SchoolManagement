@@ -12,12 +12,12 @@ from myUser.forms import UserSignupForm
 import datetime as dt
 
 def passwordchange(request):
+    emailid = request.session['emailid']
+    data = UserSignup.objects.get(userEmail=emailid)
     if request.method=="POST":
         oldpassword = request.POST["op"]
         newpassword = request.POST["np"]
         connewpassword = request.POST["cnp"]
-        emailid = request.session['emailid']
-        data = UserSignup.objects.get(userEmail=emailid)
         auth = check_password(oldpassword, data.userPassword)
         if auth == True :
             if newpassword == connewpassword :
@@ -29,7 +29,7 @@ def passwordchange(request):
                 return HttpResponse("<h1>New password and confirm password doesn't match</h1>")
         else :
             return HttpResponse("<h1>Please enter correct old password</h1>")
-    return render(request,"passwordchange.html")
+    return render(request,"passwordchange.html",{'d':data})
 
 
 def manager(request):
@@ -55,7 +55,17 @@ def managerprofile(request):
 
 
 def createprincipal(request):
-    if request.method == "POST":
+    pridata = Principle.objects.all()
+    if len(pridata) != 0 :
+        checkactive = 0
+        for i in pridata :
+            print(i.status)
+            if i.status == 1:
+                checkactive = checkactive + 1
+        if checkactive != 0 :
+            return render(request,"CreatePrinci.html",{'d':True})
+
+    elif request.method == "POST":
         form = PrincipleForm(request.POST)
         f = form.save(commit=False)
         try:

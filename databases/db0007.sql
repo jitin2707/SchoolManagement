@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 -- Dumping data for table schoolmanagement.auth_user: ~1 rows (approximately)
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-	(1, 'pbkdf2_sha256$100000$NfVpzyzMpRGE$Ilom79IvT/ePFvKv2gh9VfBeWoCZEMddGe8e675fVRY=', '2019-10-17 03:30:02', 1, 'jitin', '', '', 'truepbx247@gmail.com', 1, 1, '2019-10-03 16:59:57');
+	(1, 'pbkdf2_sha256$100000$NfVpzyzMpRGE$Ilom79IvT/ePFvKv2gh9VfBeWoCZEMddGe8e675fVRY=', '2019-10-22 04:20:41', 1, 'jitin', '', '', 'truepbx247@gmail.com', 1, 1, '2019-10-03 16:59:57');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 
 -- Dumping structure for table schoolmanagement.auth_user_groups
@@ -166,14 +166,15 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table schoolmanagement.django_admin_log: ~3 rows (approximately)
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
 INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
 	(1, '2019-10-03 17:02:56', '1', 'UserRole object (1)', 1, '[{"added": {}}]', 7, 1),
 	(2, '2019-10-03 17:30:38', 'manoj.kumar@gmail.com', 'UserSignup object (manoj.kumar@gmail.com)', 1, '[{"added": {}}]', 8, 1),
-	(3, '2019-10-17 03:30:48', '2', 'UserRole object (2)', 1, '[{"added": {}}]', 7, 1);
+	(3, '2019-10-17 03:30:48', '2', 'UserRole object (2)', 1, '[{"added": {}}]', 7, 1),
+	(4, '2019-10-22 04:21:44', '3', 'UserRole object (3)', 1, '[{"added": {}}]', 7, 1);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 
 -- Dumping structure for table schoolmanagement.django_content_type
@@ -266,6 +267,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 	('c16vcv857h18u8doa5738ublhc73b6an', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-17 03:47:19'),
 	('ckug3mv4z3n9vgeu6wtnij901t3ksbxe', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-17 11:51:01'),
 	('dvjv5s805dpetzqssxt1hwc4algc7zjb', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-16 04:05:05'),
+	('gf2gy5gd2oc8i3ytd5rp4dilbm65hxv3', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-22 04:11:14'),
 	('gipx9h6szldzd06tovgwdcxtiuog3oay', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-16 04:00:12'),
 	('gztz1oinb10ilrs456ioua0jw7h0rdhi', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-17 06:43:27'),
 	('ijz1l60azuz3krcpmqohghu6safoxxox', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-13 08:14:22'),
@@ -280,6 +282,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 	('u8b0m3sqo7b0xxfd10fg0k4qh279tmyu', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-13 08:22:49'),
 	('ugoyw2cnltves5cf02sh6eh7y54r16sb', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-24 03:43:25'),
 	('v4oqqvzr002fgla0jixfo0z2wn3eq26m', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-15 08:00:17'),
+	('wmgwf2xum4k1dh22skgtr9bs8z8mqswi', 'MTdiZTMxYWM2YTNkOTE2Y2VjNGYwY2NjOTY1N2RiY2RhMWYzYzg0Zjp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjEsIl9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiMzg4MjUzZWMzMTdkYmQxYzc3MzE1YWM1ODFjZTA4ZDNkM2RlYjAxIn0=', '2019-10-22 04:40:09'),
 	('x7nfqc9ivrkquhybj9blha7a7zyvhtot', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-17 03:42:26'),
 	('xfsrejepj7ra4t84ly9zxwdp0uyqo8mk', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-15 10:07:50'),
 	('xpr5j1lgwy9o350qr3fwub3wvi3q7uia', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-14 03:07:14');
@@ -306,13 +309,14 @@ CREATE TABLE IF NOT EXISTS `myuser_userrole` (
   `roleName` varchar(200) NOT NULL,
   `isActive` tinyint(1) NOT NULL,
   PRIMARY KEY (`roleId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table schoolmanagement.myuser_userrole: ~2 rows (approximately)
 /*!40000 ALTER TABLE `myuser_userrole` DISABLE KEYS */;
 INSERT INTO `myuser_userrole` (`roleId`, `roleName`, `isActive`) VALUES
 	(1, 'manager', 1),
-	(2, 'principal', 1);
+	(2, 'principal', 1),
+	(3, 'teacher', 1);
 /*!40000 ALTER TABLE `myuser_userrole` ENABLE KEYS */;
 
 -- Dumping structure for table schoolmanagement.myuser_usersignup
@@ -411,4 +415,3 @@ CREATE TABLE IF NOT EXISTS `teacher_teacher` (
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-sschoolmanagementteacher_teacherchoolmanagementschoolmanagementschoolmanagementschoolmanagement
