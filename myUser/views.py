@@ -1,11 +1,13 @@
 from django.shortcuts import render,redirect
 from miscellaneous import emailsend,myconstants
 from authorize import authcheck
-from myUser.forms import UserSignupForm
+from myUser.forms import UserSignupForm,LoginRecordsForm
 from myUser.models import UserSignup
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.hashers import make_password,check_password
 from authorize import authcheck
+import datetime as dt
+import re,uuid,socket
 
 # Create your views here.
 def base(request):
@@ -60,6 +62,7 @@ def verify(request):
 
 
 def login(request):
+    global activeid
     if request.method == "POST" :
         email=request.POST["l1"]
         password = request.POST["l2"]
@@ -72,10 +75,24 @@ def login(request):
                     request.session['Authentication']=True
                     request.session['emailid']=email
                     request.session['roleid']=data.roleId_id
+                    records=LoginRecordsForm(request.POST)
+                    activeid=request.GET["id"]
+                    r=records.save(commit=False)
+                    r.loginTime=dt.datetime.now()
+                    r.userEmail=email
+                    hostname = socket.gethostname()
+                    ip = socket.gethostbyname(hostname)
+                    r.ipAddress = ip
+                    mac = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
+                    r.macAddress = mac
+                    r.save()
                     if data.roleId_id == 1:
                         return redirect("/manager/home/")
                     elif data.roleId_id == 2 :
                         return redirect("/principal/home")
+                    elif data.roleId_id == 3 :
+                        return redirect("/teacher/home")
+
                 else :
                     return render(request,"login.html",{'notverified':True})
             else :
@@ -91,14 +108,29 @@ def error404(request):
 
 
 def logout(request):
+    id=request.GET["id"]
+    email=request.GET["l1"]
     try :
         request.session.pop("Authentication")
         request.session.pop("emailid")
         request.session.pop("roleid")
+
+        records = LoginRecordsForm(request.POST)
+        r = records.save(commit=False)
+        r.logoutTime = dt.datetime.now()
+        r.save()
         return redirect("/login/")
     except :
         return redirect("/login/")
 
-
 def index(request):
     return render(request,"index.html")
+
+def loginrecords(request):
+
+    form=LoginRecordsForm(request.POST)
+    f=form.save(commit=False)
+    f.loginTime=dt.datetime.now()
+    f.userEmail=request.GET["l1"]
+    f.save()
+

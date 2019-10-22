@@ -15,8 +15,8 @@ class UserSignup(models.Model):
     userState=models.CharField(max_length=200,default="")
     userOTP = models.CharField(max_length=200,default="")
     otpTime = models.CharField(max_length=200,default="")
-    userToken= models.CharField(max_length=2000,default="")
-    confirmationLink= models.CharField(max_length=2000,default="")
+    userToken = models.CharField(max_length=2000,default="")
+    confirmationLink = models.CharField(max_length=2000,default="")
     isVerified=models.BooleanField(default=False)
     isActive=models.BooleanField(default=True)
 

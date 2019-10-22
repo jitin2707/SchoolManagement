@@ -1,5 +1,5 @@
 from django import forms
-from myUser.models import UserSignup,UserRole
+from myUser.models import UserSignup,UserRole,LoginRecords
 
 class UserSignupForm(forms.ModelForm):
     class Meta():
@@ -16,4 +16,16 @@ class UserSignupForm(forms.ModelForm):
                    "isVerified",
                    "userToken",
                    "isActive"
+                   ]
+
+class LoginRecordsForm(forms.ModelForm):
+    class Meta():
+        model = LoginRecords
+        exclude = [
+                   "id",
+                   "loginTime",
+                   "logoutTime",
+                   "userEmail",
+                   "ipAddress",
+                   "macAddress"
                    ]
