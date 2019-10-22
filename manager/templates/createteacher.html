@@ -11,81 +11,79 @@
 <script>alert("Data added successfully")</script>
 {% endif %}
 <div>
-    <table border="2px" align="center">
+    <form method="POST" enctype="multipart/form-data">
+    <table border="2px" width="400px" align="center">
         <tr>
             <td>
-         Name :  <input type="text" id="tname" name="tname" placeholder="Name here">
+         Name :  <input type="text" id="tname" name="tname" placeholder="Name here"><br><br>
             </td>
         </tr>
         <tr>
             <td>
-        Email :  <input type="email" id="temail" name="temail" required placeholder="Email here">
+        Email :  <input type="email" id="temail" name="temail" required placeholder="Email here"><br><br>
                 </td>
-        </tr>
+        </tr><br>
         <tr>
             <td>
         Gender : <input type="radio" id="tgenderm" name="tgender" >Male
                 <input type="radio" id="tgenderf" name="tgender">Female
-                <input type="radio" id="tgendero" name="tgender">Others
+                <input type="radio" id="tgendero" name="tgender">Others<br><br>
             </td>
-        </tr>
+        </tr><br>
         <tr>
 
             <td>
-        Password : <input type="password" id="tpassword" name="tpassword" placeholder="password here">
+        Password : <input type="password" id="tpassword" name="tpassword" placeholder="password here"><br><br>
             </td>
         </tr>
         <tr>
             <td>
-        Date Of Birth : <input type="date" id="tdob" name="tdob" >
+        Date Of Birth : <input type="date" id="tdob" name="tdob" ><br><br>
             </td>
         </tr>
         <tr>
             <td>
-        Date Of Joining : <input type="date" id="tdoj" name="tdoj">
+        Date Of Joining : <input type="date" id="tdoj" name="tdoj"><br><br>
             </td>
         </tr>
         <tr>
             <td>
-        Date Of Leaving : <input type="date" id="tdol" name="tdol">
+        Date Of Leaving : <input type="date" id="tdol" name="tdol"><br><br>
             </td>
         </tr>
         <tr>
             <td>
-        Address : <input type="text" id="taddress" name="taddress" placeholder="address here">
+        Address : <input type="text" id="taddress" name="taddress" placeholder="address here"><br><br>
             </td>
         </tr>
         <tr>
             <td>
-        Moblie :  <input type="number" id="tmobile" name="tmobile" placeholder="contact here">
+        Moblie :  <input type="text" id="tmobile" name="tmobile" value="+91" placeholder="contact here"><br><br>
             </td>
         </tr>
         <tr>
             <td>
-        Status:        <input type="text" id="tstatus" name="tstatus" placeholder="status here">
+        Status:        <input type="text" id="tstatus" name="tstatus" placeholder="status here"><br><br>
             </td>
             <tr>
         <td>
-         Session : <input type="date" id="tsession" name="tsession" >
+         Session : <input type="number" id="tsession" name="tsession" value="2011"><br><br>
         </td>
         </tr>
 
         <tr>
             <td>
-        Image :   <input type="file" id="timage" name="timage">
+        Image :   <input type="file" id="timage" name="timage"><br>
             </td>
         </tr>
-        <tr>
-            <td>
-        Joining Date : <input type="date" id="tdate" name="tdate">
-            </td>
-        </tr>
+
         <tr>
             <td align="center">
                 <input type="submit" value="Submit" >
             </td>
         </tr>
     </table>
+    </form>
 </div>
 
 
