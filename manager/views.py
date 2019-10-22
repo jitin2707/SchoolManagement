@@ -157,17 +157,17 @@ def createteacher(request):
         f.dol = request.POST["tdol"]
         f.address = request.POST["taddress"]
         f.mobile = request.POST["tmobile"]
-        f.status = request.POST["tstatus"]
         currentYear=dt.date.today()
         s=currentYear.year
         f.session = s
         f.image = timage
-        f.last_login_time = dt.datetime.now()
-        f.last_login_date = dt.datetime.today()
-        f.last_logout = dt.datetime.now()
+        # f.last_login_time =
+        # f.last_login_date =
+        # f.last_logout =
         f.role_id = 3
-        otp = emailsend.OtpSend()
-        f.otp_date_time = dt.datetime.now()
+        otp ,y = emailsend.OtpSend()
+        f.otp=otp
+        f.otp_date_time = y
         email = request.POST["temail"]
         token = email[0:5] + request.POST['tmobile'][4:9] + otp
         token = make_password(token)
@@ -175,6 +175,7 @@ def createteacher(request):
         f.userToken = token
         confirmationlink = "http://127.0.0.1/verifyuser/?email=" + email + "&token=" + token
         f.verify_link =confirmationlink
+        f.isActive = True
         f.save()
         return render(request,"createteacher.html",{'success':True})
     return render(request,"createteacher.html")
