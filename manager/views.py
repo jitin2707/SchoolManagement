@@ -177,6 +177,23 @@ def createteacher(request):
         f.verify_link =confirmationlink
         f.isActive = True
         f.save()
+        # to update in common signup database
+        form1 = UserSignupForm(request.POST)
+        f = form1.save(commit=False)
+        f.userFullName = request.POST["pn"]
+        f.userEmail = request.POST["pe"]
+        f.userPassword = make_password(request.POST["pp"])
+        f.userMobile = request.POST["pm"]
+        f.userState = request.POST["pa"]
+        f.userOTP = otp
+        f.otpTime = y
+        f.userToken = token
+        f.isVerified = False
+        f.confirmationLink = confirmationlink
+        f.isActive = True
+        f.roleId_id = 2
+        f.save()
+        emailsend.sendemail("Confirmation Link", email, confirmationlink)
         return render(request,"createteacher.html",{'success':True})
     return render(request,"createteacher.html")
 

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from miscellaneous import emailsend,myconstants
 from authorize import authcheck
 from myUser.forms import UserSignupForm,LoginRecordsForm
-from myUser.models import UserSignup
+from myUser.models import UserSignup,LoginRecords
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.hashers import make_password,check_password
 from authorize import authcheck
@@ -62,7 +62,7 @@ def verify(request):
 
 
 def login(request):
-    global activeid
+
     if request.method == "POST" :
         email=request.POST["l1"]
         password = request.POST["l2"]
@@ -76,7 +76,6 @@ def login(request):
                     request.session['emailid']=email
                     request.session['roleid']=data.roleId_id
                     records=LoginRecordsForm(request.POST)
-                    activeid=request.GET["id"]
                     r=records.save(commit=False)
                     r.loginTime=dt.datetime.now()
                     r.userEmail=email
@@ -108,17 +107,23 @@ def error404(request):
 
 
 def logout(request):
-    id=request.GET["id"]
-    email=request.GET["l1"]
+    email = request.session['emailid']
+    data=LoginRecords.objects.filter(userEmail=email).order_by("-id")[0:1]
+    idd=0
+    for i in data:
+        idd=i.id
+        break
+
     try :
         request.session.pop("Authentication")
         request.session.pop("emailid")
         request.session.pop("roleid")
-
-        records = LoginRecordsForm(request.POST)
-        r = records.save(commit=False)
-        r.logoutTime = dt.datetime.now()
-        r.save()
+        logouttime= str(dt.datetime.now())
+        if idd > 0 :
+            updateD = LoginRecords(id=idd, logoutTime=logouttime)
+            updateD.save(update_fields=["logoutTime"])
+        else:
+            pass
         return redirect("/login/")
     except :
         return redirect("/login/")
@@ -126,11 +131,4 @@ def logout(request):
 def index(request):
     return render(request,"index.html")
 
-def loginrecords(request):
-
-    form=LoginRecordsForm(request.POST)
-    f=form.save(commit=False)
-    f.loginTime=dt.datetime.now()
-    f.userEmail=request.GET["l1"]
-    f.save()
 
