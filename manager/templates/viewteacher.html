@@ -1,0 +1,51 @@
+<head>
+    <meta charset="UTF-8">
+    <title>View Teacher Records</title>
+</head>
+<body>
+{% extends 'index.html' %}
+{% csrf_token %}
+{% block content %}
+<div>
+<table border="2px" width="90%px" align="center" cellspacing="50px">
+    <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Gender</td>
+        <td>Qualification</td>
+        <td>Date Of Birth</td>
+        <td>Date Of Joining</td>
+        <td>Date Of Leaving</td>
+        <td>Mobile</td>
+        <td>Address</td>
+        <td>Session</td>
+        <td>Image</td>
+        <td>Action</td>
+        <td>Delete</td>
+    </tr>
+ {% if d %}
+{% for i in d %}
+
+    <tr>
+        <td>{{i.email}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.qualification}}</td>
+        <td>{{i.dob}}</td>
+        <td>{{i.doj}}</td>
+        <td>{{i.dol}}</td>
+        <td>{{i.mobile}}</td>
+        <td>{{i.address}}</td>
+        <td>{{i.session}}</td>
+        <td>{{i.image}}</td>
+        <td><a href="/manager/updateteacher/?id={{i.email}}">Edit</a></td>
+        <td><a href="/manager/deleteteacher/?id={{i.email}}">Delete</a></td>
+
+    </tr>
+{% endfor %}
+{% endif %}
+</table>
+</div>
+
+{% endblock %}
+</body>
