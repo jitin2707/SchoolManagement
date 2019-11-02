@@ -10,5 +10,13 @@ urlpatterns = [
     url(r'^profile/$', views.managerprofile, name="mprofile"),
     url(r'^addprincipal/$', views.createprincipal, name="addprinci"),
     url(r'^viewprincipal/$', views.viewprincipal, name="viewprincipal"),
-    url(r'^createteacher/$', views.createteacher, name="createteacher")
+    url(r'^createteacher/$', views.createteacher, name="createteacher"),
+    url(r'^viewteacher/$', views.viewteacher, name="viewteacher"),
+    url(r'^updateteacher/$', views.updateteacher, name="updateteacher"),
+    url(r'^deleteteacher/$', views.deleteteacher, name="deleteteacher")
+
+
+
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

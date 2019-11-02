@@ -1,101 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Teacher Accounts</title>
-</head>
-<body>
+
 {% extends 'index.html' %}
+
 {% block content %}
-{% if success %}
-<script>alert("Data added successfully")</script>
-{% endif %}
-<div>
-    <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
+<div class="box" style=" background:url(../assets/images/feedback.png);  background-repeat: no-repeat; width:700px; height:1000px; position:relative; left:400px; top:70px;">
+<h1 style="text-align:center;">Registration Form</h1>
+</br>
+<form method="post" enctype="multipart/form-data" align="center">
+    {% csrf_token %}
+    {% if success %}
+    <script type="text/javascript">
+        alert('Details Updated Successfully');
 
-    <table border="2px" width="400px" align="center">
-        <tr>
-            <td>
-         Name :  <input type="text" id="tname" name="tname" placeholder="Name here"><br><br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-        Email :  <input type="email" id="temail" name="temail" required placeholder="Email here"><br><br>
-                </td>
-        </tr><br>
-        <tr>
-            <td>
-        Gender : <input type="radio" id="tgenderm" name="tgender" >Male
-                <input type="radio" id="tgenderf" name="tgender">Female
-                <input type="radio" id="tgendero" name="tgender">Others<br><br>
-            </td>
-        </tr><br>
-        <tr>
-            <td>
-                Qualification:<input type="text" id="tqualification" name="tqualification"><br><br>
-            </td>
-        </tr>
-        <tr>
+    </script>
+    {% endif %}
+      <div class="form-group">
+    <label for="name">Full Name</label>
+    <input type="text" class="form-control" id="tname" placeholder="Enter Full Name" name="tname">
+  </div>
+<br class="hero" style="position:relative; "  >
+      <div class="form-row" >
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="temail" placeholder="Enter mail" name="temail">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="tpassword" placeholder="Enter  Password" name="tpassword" >
+        </div>
+		<div class="form-group col-md-6">
+          <label for="qualification">Qualification</label>
+          <input type="text" class="form-control" id="tqualification" placeholder="Enter qualification" name="tqualification" >
+        </div>
+      </div>
+    <div class="form-row" >
+	<div class="form-group col-md-6">
+          <label for="subject">Subject</label>
+          <input type="text" class="form-control" id="tsubject" name="tsubject" placeholder="Enter subject here">
+        </div>
+	<div class="form-group col-md-6">
+             <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+        <br/>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="tgender" id="gridRadios1" >
+          <label class="form-check-label" for="gridRadios1">
+            Male
+          </label>
+            <div class="form-check">
+             <input class="form-check-input" type="radio" name="tgender" id="gridRadios2" checked>
+          <label class="form-check-label" for="gridRadios1">
+            Female
+          </label>
+            </div>
+            <div class="form-check">
+             <input class="form-check-input" type="radio" name="tgender" id="gridRadios3"  >
+          <label class="form-check-label" for="gridRadios1">
+            Others
+          </label>
+            </div>
 
-                        <td>
-        Password : <input type="password" id="tpassword" name="tpassword" placeholder="password here"><br><br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-        Date Of Birth : <input type="date" id="tdob" name="tdob" ><br><br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-        Date Of Joining : <input type="date" id="tdoj" name="tdoj"><br><br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-        Date Of Leaving : <input type="date" id="tdol" name="tdol"><br><br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-        Address : <input type="text" id="taddress" name="taddress" placeholder="address here"><br><br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-        Moblie :  <input type="text" id="tmobile" name="tmobile" value="+91" placeholder="contact here"><br><br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-        Status:        <input type="text" id="tstatus" name="tstatus" placeholder="status here"><br><br>
-            </td>
-            <tr>
-        <td>
-         Session : <input type="number" id="tsession" name="tsession" value="2011"><br><br>
-        </td>
-        </tr>
+      </div>
+    </div>
+  </fieldset>
 
-        <tr>
-            <td>
-        Image :   <input type="file" id="timage" name="timage"><br>
-            </td>
-        </tr>
+          </div>
+         <div class="form-group col-md-6">
+            <label for="">Mobile</label>
+            <input type="text" class="form-control" id="tmobile" placeholder="Enter Mobile Number" name="tmobile">
+          </div>
+		  </div>
+		  <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="dob">Date Of Birth</label>
+                <input type="date" class="form-control" id="tdob" placeholder="Enter dob" name="tdob">
+            </div>
+			<div class="form-group col-md-6">
+                <label for="doj">Date Of Joining</label>
+                <input type="date" class="form-control" id="tdoj" placeholder="Enter doj" name="tdoj">
+            </div>
+			<div class="form-group col-md-6">
+                <label for="dob">Date Of Leaving</label>
+                <input type="date" class="form-control" id="tdol" placeholder="Enterdol" name="tdol">
+            </div>
+    </div>
 
-        <tr>
-            <td align="center">
-                <input type="submit" value="Submit" >
-            </td>
-        </tr>
-    </table>
-    </form>
+   <div class="form-row">
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="taddress" placeholder="Enter Address" name="taddress">
+      </div>
+
+
+        <div class="form-group col-md-6">
+          <label for="session">Session</label>
+          <input type="date" class="form-control" id="tsession" name="tsession" value="2011">
+        </div>
+
+ <div>
+        <label for="image">ProfileImage</label>
+		<input type="file" id="timage" name="timage">
+
+</div></div>
+
+
+</br>
+
+      <input  type="submit" class="btn btn-primary" value="Submit" style="align:center;">
+
+
+</form>
+
+    </div>
 </div>
 
-
+<div align="center">
+    <a href="/manager/viewteacher/">View Teacher Records</a>
+</div>
 
 {% endblock %}
-
-</body>
-</html>

@@ -150,6 +150,7 @@ def createteacher(request):
         f.name = request.POST["tname"]
         f.email = request.POST["temail"]
         f.gender = request.POST["tgender"]
+        f.subject = request.POST["tsubject"]
         f.qualification = request.POST["tqualification"]
         f.password = request.POST["tpassword"]
         f.dob = request.POST["tdob"]
@@ -180,11 +181,11 @@ def createteacher(request):
         # to update in common signup database
         form1 = UserSignupForm(request.POST)
         f = form1.save(commit=False)
-        f.userFullName = request.POST["pn"]
-        f.userEmail = request.POST["pe"]
-        f.userPassword = make_password(request.POST["pp"])
-        f.userMobile = request.POST["pm"]
-        f.userState = request.POST["pa"]
+        f.userFullName = request.POST["tname"]
+        f.userEmail = request.POST["temail"]
+        f.userPassword = make_password(request.POST["tpassword"])
+        f.userMobile = request.POST["tmobile"]
+        f.userState = request.POST["taddress"]
         f.userOTP = otp
         f.otpTime = y
         f.userToken = token
@@ -197,8 +198,51 @@ def createteacher(request):
         return render(request,"createteacher.html",{'success':True})
     return render(request,"createteacher.html")
 
+def viewteacher(request):
+    data=Teacher.objects.all()
+
+    return render(request,"viewteacher.html",{'d': data})
+
+def updateteacher(request):
+    email=request.GET["id"]
+    data = Teacher.objects.get(email=email)
+    if request.method == "POST":
+        timage=request.FILES["timage"]
+        form=TeacherForm(request.POST)
+        img=timage
+        try:
+            if request.FILES["timage"]:
+                my_file = request.FILES["timage"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                img = fs.url(file_name)
+                img = my_file
+        except:
+            pass
+        name = request.POST["tname"]
+        email = email
+        gender = request.POST["tgender"]
+        qualifiaction = request.POST["tqualification"]
+        password = make_password(request.POST["tpassword"])
+        dob = request.POST["tdob"]
+        doj = request.POST["tdoj"]
+        dol = request.POST["tdol"]
+        address = request.POST["taddress"]
+        mobile = request.POST["taddress"]
+        session = request.POST["tsession"]
+        image = img
+        updatedata = Teacher(email=email,name=name,gender=gender,qualifiaction=qualifiaction,
+                             password=password,dob=dob,doj=doj,dol=dol, address=address,mbile=mobile,session=session,image=image)
+        updatedata.save(update_fields=["name","gender","qualification","password","dob","doj","dol","address", "mobile","image"])
+        return redirect('/manager/viewteacher')
+    return render(request,"updateteacher.html",{'d':data})
 
 
+def deleteteacher(request):
+    email=request.GET["id"]
+    data=Teacher.objects.get(email=email)
+    data.delete()
+    return redirect('/manager/viewteacher')
 
 
 
