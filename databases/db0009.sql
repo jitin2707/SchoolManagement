@@ -53,9 +53,9 @@ CREATE TABLE IF NOT EXISTS `auth_permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
   CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolmanagement.auth_permission: ~36 rows (approximately)
+-- Dumping data for table schoolmanagement.auth_permission: ~39 rows (approximately)
 /*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
 INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALUES
 	(1, 'Can add log entry', 1, 'add_logentry'),
@@ -93,7 +93,10 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 	(33, 'Can delete teacher', 10, 'delete_teacher'),
 	(34, 'Can add login records', 11, 'add_loginrecords'),
 	(35, 'Can change login records', 11, 'change_loginrecords'),
-	(36, 'Can delete login records', 11, 'delete_loginrecords');
+	(36, 'Can delete login records', 11, 'delete_loginrecords'),
+	(37, 'Can add clerk', 12, 'add_clerk'),
+	(38, 'Can change clerk', 12, 'change_clerk'),
+	(39, 'Can delete clerk', 12, 'delete_clerk');
 /*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
 
 -- Dumping structure for table schoolmanagement.auth_user
@@ -151,6 +154,34 @@ CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
 /*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
 /*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
 
+-- Dumping structure for table schoolmanagement.clerical_clerk
+CREATE TABLE IF NOT EXISTS `clerical_clerk` (
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `qualification` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `dob` varchar(255) DEFAULT NULL,
+  `doj` varchar(255) DEFAULT NULL,
+  `dol` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `mobile` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `session` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `last_login_time` varchar(255) DEFAULT NULL,
+  `last_login_date` varchar(255) DEFAULT NULL,
+  `last_logout` varchar(255) DEFAULT NULL,
+  `role_id` int(11) NOT NULL,
+  PRIMARY KEY (`email`),
+  KEY `clerical_clerk_role_id_84015c2a_fk_myUser_userrole_roleId` (`role_id`),
+  CONSTRAINT `clerical_clerk_role_id_84015c2a_fk_myUser_userrole_roleId` FOREIGN KEY (`role_id`) REFERENCES `myuser_userrole` (`roleId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table schoolmanagement.clerical_clerk: ~0 rows (approximately)
+/*!40000 ALTER TABLE `clerical_clerk` DISABLE KEYS */;
+/*!40000 ALTER TABLE `clerical_clerk` ENABLE KEYS */;
+
 -- Dumping structure for table schoolmanagement.django_admin_log
 CREATE TABLE IF NOT EXISTS `django_admin_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -168,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolmanagement.django_admin_log: ~3 rows (approximately)
+-- Dumping data for table schoolmanagement.django_admin_log: ~4 rows (approximately)
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
 INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
 	(1, '2019-10-03 17:02:56', '1', 'UserRole object (1)', 1, '[{"added": {}}]', 7, 1),
@@ -184,15 +215,16 @@ CREATE TABLE IF NOT EXISTS `django_content_type` (
   `model` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolmanagement.django_content_type: ~11 rows (approximately)
+-- Dumping data for table schoolmanagement.django_content_type: ~12 rows (approximately)
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
 INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 	(1, 'admin', 'logentry'),
 	(3, 'auth', 'group'),
 	(2, 'auth', 'permission'),
 	(4, 'auth', 'user'),
+	(12, 'clerical', 'clerk'),
 	(5, 'contenttypes', 'contenttype'),
 	(11, 'myUser', 'loginrecords'),
 	(7, 'myUser', 'userrole'),
@@ -209,9 +241,9 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolmanagement.django_migrations: ~22 rows (approximately)
+-- Dumping data for table schoolmanagement.django_migrations: ~24 rows (approximately)
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 	(1, 'contenttypes', '0001_initial', '2019-10-02 12:39:30'),
@@ -235,7 +267,9 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 	(19, 'myUser', '0005_auto_20191007_0957', '2019-10-07 04:28:06'),
 	(20, 'principal', '0001_initial', '2019-10-17 03:14:12'),
 	(21, 'teacher', '0001_initial', '2019-10-19 05:09:02'),
-	(22, 'myUser', '0006_loginrecords', '2019-10-19 05:15:10');
+	(22, 'myUser', '0006_loginrecords', '2019-10-19 05:15:10'),
+	(23, 'teacher', '0002_remove_teacher_subject', '2019-11-03 09:40:35'),
+	(24, 'clerical', '0001_initial', '2019-11-04 03:18:55');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 
 -- Dumping structure for table schoolmanagement.django_session
@@ -247,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `django_session` (
   KEY `django_session_expire_date_a5c62663` (`expire_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolmanagement.django_session: ~34 rows (approximately)
+-- Dumping data for table schoolmanagement.django_session: ~38 rows (approximately)
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 	('0c5uhkkqbtoh2hseyyu12xa0c7nj7ivw', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-13 08:27:18'),
@@ -279,13 +313,16 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 	('lvibofeuz3c6yshx2bzst01qaau8csqu', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-14 15:57:48'),
 	('oh0eoh3qzfgj45vz4dubqcyk3fi4flmh', 'MzFlYzU4MDNlNWI4OTlhZDMzZmIwZGExOGY1OTI2ZTEyOWFiNjIxNDp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoiaml0aW5AaW50ZXJiaXRzb2x1dGlvbnMuY29tIiwicm9sZWlkIjoyfQ==', '2019-10-17 13:53:58'),
 	('peogsvq7oprp6rcnb7m72yx3w0o9vm62', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-15 12:13:41'),
+	('rn1x9njn17igz61nulv9nqhvgtdehp09', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-11-04 03:45:26'),
 	('u8b0m3sqo7b0xxfd10fg0k4qh279tmyu', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-13 08:22:49'),
 	('ugoyw2cnltves5cf02sh6eh7y54r16sb', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-24 03:43:25'),
 	('v4oqqvzr002fgla0jixfo0z2wn3eq26m', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-15 08:00:17'),
+	('vw4a6d4qnsiu1qgqqqd5zvx3mpxxhd1u', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-11-03 09:40:43'),
 	('wmgwf2xum4k1dh22skgtr9bs8z8mqswi', 'MTdiZTMxYWM2YTNkOTE2Y2VjNGYwY2NjOTY1N2RiY2RhMWYzYzg0Zjp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjEsIl9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiMzg4MjUzZWMzMTdkYmQxYzc3MzE1YWM1ODFjZTA4ZDNkM2RlYjAxIn0=', '2019-10-22 04:40:09'),
 	('x7nfqc9ivrkquhybj9blha7a7zyvhtot', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-17 03:42:26'),
 	('xfsrejepj7ra4t84ly9zxwdp0uyqo8mk', 'Yjg4MDUwYjQ1ODEwMmEyNmZlNDRlMjBlYzQ5ZTZiOTBlZDRiMWYyMzp7IkF1dGhlbnRpY2F0aW9uIjp0cnVlLCJlbWFpbGlkIjoidHJ1ZXBieDI0N0BnbWFpbC5jb20iLCJyb2xlaWQiOjF9', '2019-10-15 10:07:50'),
-	('xpr5j1lgwy9o350qr3fwub3wvi3q7uia', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-14 03:07:14');
+	('xpr5j1lgwy9o350qr3fwub3wvi3q7uia', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-14 03:07:14'),
+	('z95ry4pufdac8du84dndocs3ndifoyjt', 'OWIyMWI0N2VjNzIyYmQ5ZTYzOGU5MTU2MTU3OTJiNjg3Y2NjYmMzMDp7fQ==', '2019-10-23 04:31:48');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 
 -- Dumping structure for table schoolmanagement.myuser_loginrecords
@@ -297,10 +334,22 @@ CREATE TABLE IF NOT EXISTS `myuser_loginrecords` (
   `ipAddress` varchar(255) DEFAULT NULL,
   `macAddress` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolmanagement.myuser_loginrecords: ~0 rows (approximately)
+-- Dumping data for table schoolmanagement.myuser_loginrecords: ~10 rows (approximately)
 /*!40000 ALTER TABLE `myuser_loginrecords` DISABLE KEYS */;
+INSERT INTO `myuser_loginrecords` (`id`, `loginTime`, `logoutTime`, `userEmail`, `ipAddress`, `macAddress`) VALUES
+	(3, '2019-10-23 09:30:36.475172', '', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41'),
+	(4, '2019-10-23 09:33:38.501814', '', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41'),
+	(5, '2019-10-23 09:37:11.767620', '', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41'),
+	(6, '2019-10-23 09:39:26.039293', '', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41'),
+	(7, '2019-10-23 09:41:03.447068', '', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41'),
+	(8, '2019-10-23 09:44:13.557900', '', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41'),
+	(9, '2019-10-23 09:45:46.549002', '', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41'),
+	(10, '2019-10-23 09:49:37.963437', '', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41'),
+	(11, '2019-10-23 09:51:45.418937', '2019-10-23 09:51:48.552144', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41'),
+	(12, '2019-11-03 15:00:09.606779', '', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41'),
+	(13, '2019-11-04 09:01:15.584044', '', 'truepbx247@gmail.com', '192.168.56.1', 'f4:30:b9:d8:62:41');
 /*!40000 ALTER TABLE `myuser_loginrecords` ENABLE KEYS */;
 
 -- Dumping structure for table schoolmanagement.myuser_userrole
@@ -311,7 +360,7 @@ CREATE TABLE IF NOT EXISTS `myuser_userrole` (
   PRIMARY KEY (`roleId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolmanagement.myuser_userrole: ~2 rows (approximately)
+-- Dumping data for table schoolmanagement.myuser_userrole: ~3 rows (approximately)
 /*!40000 ALTER TABLE `myuser_userrole` DISABLE KEYS */;
 INSERT INTO `myuser_userrole` (`roleId`, `roleName`, `isActive`) VALUES
 	(1, 'manager', 1),
@@ -341,6 +390,7 @@ CREATE TABLE IF NOT EXISTS `myuser_usersignup` (
 -- Dumping data for table schoolmanagement.myuser_usersignup: ~4 rows (approximately)
 /*!40000 ALTER TABLE `myuser_usersignup` DISABLE KEYS */;
 INSERT INTO `myuser_usersignup` (`userFullName`, `userEmail`, `userPassword`, `userMobile`, `userState`, `isActive`, `roleId_id`, `confirmationLink`, `isVerified`, `otpTime`, `userOTP`, `userToken`) VALUES
+	('Ankita', '050ankita@gmail.com', 'pbkdf2_sha256$100000$43bkouQCIXCH$6mck/GwC37n278MvXoTPCi7HdluRptXs6Ux9EJlimKE=', 7879954624, 'rgwrffsdfsgfdgrg', 1, 2, '', 1, '2019-11-04 09:05:19.319122', 't29576x', 'pbkdf2_sha256$100000$2o06I6znkZAV$HQh6NyKDBfe/iQP2FMg/DGj2KVK24Hh/vYKUxfqAo='),
 	('jitinprinci', 'jitin@interbitsolutions.com', 'pbkdf2_sha256$100000$XpjUuqI3gxKq$J9CMZTHzaCT1J7OicbBMSrVvoh2Cmarq7oWDjZBv5R4=', 8445656758, 'zirakpur', 1, 2, '', 1, '2019-10-17 19:11:59.404294', 'D24049k', 'pbkdf2_sha256$100000$RpWtI6olSDDQ$4ZLOS94h0WO4EgNnMwUfhgd3MjFfmEYRTa8BsEGghCk='),
 	('nitin', 'kolishnitin@gmail.com', 'pbkdf2_sha256$100000$Ec8aP8dkuTvt$+rz+VzlbRLFCsmlKqB1/+J4WmlYtrgr4nz5/lihLr0c=', 878787979778, 'Punjab', 1, 1, 'http://127.0.0.1/verifyuser/?email=kolishnitin@gmail.com&token=pbkdf2_sha256$100000$FPiNG9m0owLR$/9aK7mC2ITve82RhEvELgIiPYI/bkk4smFRptgnuTvk=', 0, '2019-10-09 09:56:53.091780', 'b51900B', 'pbkdf2_sha256$100000$FPiNG9m0owLR$/9aK7mC2ITve82RhEvELgIiPYI/bkk4smFRptgnuTvk='),
 	('Manoj Kumar', 'manoj.kumar@gmail.com', 'asdfg123#', 9876002081, 'sector 34 , chd', 1, 1, '', 0, '', '', ''),
@@ -386,7 +436,6 @@ CREATE TABLE IF NOT EXISTS `teacher_teacher` (
   `email` varchar(255) NOT NULL,
   `gender` varchar(255) DEFAULT NULL,
   `qualification` varchar(255) DEFAULT NULL,
-  `subject` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `dob` varchar(255) DEFAULT NULL,
   `doj` varchar(255) DEFAULT NULL,
@@ -410,6 +459,8 @@ CREATE TABLE IF NOT EXISTS `teacher_teacher` (
 
 -- Dumping data for table schoolmanagement.teacher_teacher: ~0 rows (approximately)
 /*!40000 ALTER TABLE `teacher_teacher` DISABLE KEYS */;
+INSERT INTO `teacher_teacher` (`name`, `email`, `gender`, `qualification`, `password`, `dob`, `doj`, `dol`, `address`, `mobile`, `status`, `session`, `image`, `last_login_time`, `last_login_date`, `last_logout`, `otp`, `otp_date_time`, `verify_link`, `role_id`) VALUES
+	('Ankita', '050ankita@gmail.com', 'on', 'B.Tech', 'qwerty123', '1998-07-12', '2019-11-04', '', 'rgwrffsdfsgfdgrg', '7879954624', 1, '2019', 'FB_IMG_1502534391901.jpg', '', '', '', 't29576x', '2019-11-04 09:05:19.319122', 'http://127.0.0.1/verifyuser/?email=050ankita@gmail.com&token=pbkdf2_sha256$100000$2o06I6znkZAV$HQh6NyKDBfe/iQP2FMg/DGj2KVK24Hh/vYKUxfqAo=', 3);
 /*!40000 ALTER TABLE `teacher_teacher` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

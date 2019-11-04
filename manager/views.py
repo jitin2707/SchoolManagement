@@ -133,6 +133,7 @@ def viewprincipal(request):
     data = Principle.objects.all()
     return render(request,"viewprincipal.html",{'d': data})
 
+
 def createteacher(request):
     if request.method == "POST":
         form=TeacherForm(request.POST)
