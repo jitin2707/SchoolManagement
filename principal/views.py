@@ -5,6 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.hashers import make_password,check_password
 from authorize import authcheck
 from myUser.models import UserSignup
+from principal.models import Principle
 from principal.forms import PrincipleForm
 from myUser.forms import UserSignupForm
 import datetime as dt
@@ -16,7 +17,9 @@ def principal(request):
         if authdata== True :
             emailid = request.session['emailid']
             data = UserSignup.objects.get(userEmail=emailid)
-            return render(request,"principal.html",{'d':data})
+            data2 = Principle.objects.get(email=emailid)
+
+            return render(request,"principal.html",{'d':data,'p':data2})
         else :
             authinfo,message = authdata
             if message == "Invalid_User":
