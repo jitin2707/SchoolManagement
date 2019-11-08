@@ -7,22 +7,23 @@
 {% csrf_token %}
 {% block content %}
 <div>
-<table border="2px" width="90%px" align="center" cellspacing="50px">
+<table class="table" border="2px"  align="center" cellspacing="50px">
+      <thead class="thead-dark" style="background-color:black;font-size:20px;">
     <tr>
-        <td>Name</td>
-        <td>Email</td>
-        <td>Gender</td>
-        <td>Qualification</td>
-        <td>Date Of Birth</td>
-        <td>Date Of Joining</td>
-        <td>Date Of Leaving</td>
-        <td>Mobile</td>
-        <td>Address</td>
-        <td>Session</td>
-        <td>Image</td>
-        <td>Action</td>
-        <td>Delete</td>
+        <th scope="col" style="text-color:white;">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Qualification</th>
+        <th scope="col">Date Of Birth</th>
+        <th scope="col">Date Of Joining</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Address</th>
+        <th scope="col">Session</th>
+        <th scope="col">Image</th>
+        <th scope="col">Action</th>
+        <th scope="col">Delete</th>
     </tr>
+      </thead>
  {% if d %}
 {% for i in d %}
 
@@ -33,11 +34,10 @@
         <td>{{i.qualification}}</td>
         <td>{{i.dob}}</td>
         <td>{{i.doj}}</td>
-        <td>{{i.dol}}</td>
         <td>{{i.mobile}}</td>
         <td>{{i.address}}</td>
         <td>{{i.session}}</td>
-        <td>{{i.image}}</td>
+        <td><img height="60px" width="60px" src="/media/{{i.image}}"></td>
         <td><a href="/manager/updateteacher/?id={{i.email}}">Edit</a></td>
         <td><a href="/manager/deleteteacher/?id={{i.email}}">Delete</a></td>
 
