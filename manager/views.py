@@ -6,8 +6,8 @@ from django.contrib.auth.hashers import make_password,check_password
 from authorize import authcheck
 from myUser.models import UserSignup
 from principal.models import Principle
-from teacher.models import Teacher
-from manager.forms import PrincipleForm,TeacherForm
+# from teacher.models import SchoolTeacher
+from manager.forms import PrincipleForm
 from myUser.forms import UserSignupForm
 import datetime as dt
 

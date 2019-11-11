@@ -1,6 +1,6 @@
 from django import forms
 from principal.models import Principle
-from teacher.models import Teacher
+# from teacher.models import SchoolTeacher
 
 class PrincipleForm(forms.ModelForm):
     class Meta():
@@ -9,11 +9,11 @@ class PrincipleForm(forms.ModelForm):
                   "dob","doj","dol","address","mobile","status","session","image","last_login_time",
                   "last_login_date","last_logout","role","otp","otp_date_time","verify_link"]
 
-class TeacherForm(forms.ModelForm):
-    class Meta():
-        model = Teacher
-        exclude = ["name","email","gender","qualification","password","dob",
-                   "doj","dol","address","mobile","status","session","image","last_login_time",
-                   "last_login_date","last_logout","role","otp","otp_date_time","verify_link"]
-
-
+# class TeacherForm(forms.ModelForm):
+#     class Meta():
+#         model = SchoolTeacher
+#         exclude = ["name","email","gender","qualification","password","dob",
+#                    "doj","dol","address","mobile","status","session","image","last_login_time",
+#                    "last_login_date","last_logout","role","otp","otp_date_time","verify_link"]
+#
+#
