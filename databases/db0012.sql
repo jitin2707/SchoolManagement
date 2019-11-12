@@ -120,10 +120,12 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `date_joined` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table test_db.auth_user: ~0 rows (approximately)
+-- Dumping data for table test_db.auth_user: ~1 rows (approximately)
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
+	(1, 'pbkdf2_sha256$100000$njGoW9tjgaSv$wgy7L367AW2MkbAm8KLC6w0fl5o1bZSKn551ZRUsX6Y=', '2019-11-11 18:58:06', 1, 'jitin', '', '', 'jitin@interbitsolutions.com', 1, 1, '2019-11-11 18:33:17');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 
 -- Dumping structure for table test_db.auth_user_groups
@@ -201,10 +203,28 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
--- Dumping data for table test_db.django_admin_log: ~0 rows (approximately)
+-- Dumping data for table test_db.django_admin_log: ~17 rows (approximately)
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
+	(1, '2019-11-11 18:34:34', '5', 'student', 1, '[{"added": {}}]', 7, 1),
+	(2, '2019-11-11 18:58:40', '1', 'Student_class object (1)', 1, '[{"added": {}}]', 12, 1),
+	(3, '2019-11-11 18:59:06', '2', 'Student_class object (2)', 1, '[{"added": {}}]', 12, 1),
+	(4, '2019-11-11 19:01:23', '3', 'third', 1, '[{"added": {}}]', 12, 1),
+	(5, '2019-11-11 19:01:36', '4', 'fourth', 1, '[{"added": {}}]', 12, 1),
+	(6, '2019-11-11 19:01:48', '5', 'five', 1, '[{"added": {}}]', 12, 1),
+	(7, '2019-11-11 19:02:00', '6', 'six', 1, '[{"added": {}}]', 12, 1),
+	(8, '2019-11-11 19:06:18', '7', 'seven', 1, '[{"added": {}}]', 12, 1),
+	(9, '2019-11-11 19:07:45', '8', 'eight', 1, '[{"added": {}}]', 12, 1),
+	(10, '2019-11-11 19:07:57', '9', 'nine', 1, '[{"added": {}}]', 12, 1),
+	(11, '2019-11-11 19:08:10', '10', 'ten', 1, '[{"added": {}}]', 12, 1),
+	(12, '2019-11-11 19:10:23', '1', 'Section object (1)', 1, '[{"added": {}}]', 15, 1),
+	(13, '2019-11-11 19:10:37', '2', 'Section object (2)', 1, '[{"added": {}}]', 15, 1),
+	(14, '2019-11-11 19:10:45', '3', 'Section object (3)', 1, '[{"added": {}}]', 15, 1),
+	(15, '2019-11-11 19:11:00', '4', 'Section object (4)', 1, '[{"added": {}}]', 15, 1),
+	(16, '2019-11-11 19:11:08', '5', 'Section object (5)', 1, '[{"added": {}}]', 15, 1),
+	(17, '2019-11-11 19:11:15', '6', 'Section object (6)', 1, '[{"added": {}}]', 15, 1);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 
 -- Dumping structure for table test_db.django_content_type
@@ -285,8 +305,11 @@ CREATE TABLE IF NOT EXISTS `django_session` (
   KEY `django_session_expire_date_a5c62663` (`expire_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table test_db.django_session: ~0 rows (approximately)
+-- Dumping data for table test_db.django_session: ~2 rows (approximately)
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+	('0x8qmhjlmlkk1k8idvbdkat3b5cwi2bs', 'ZjRjZGUyNjhhOGI3ODIxNjBjNDJkNzRlODJkNzlkMzc4Zjc0ZmRiYjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5MmQwYWMwNGUwYzRjNzllZjM1NDkyY2ViYTNmODRiMmMxMDY0ZWU0In0=', '2019-11-11 18:44:34'),
+	('i6mdwq4ra6fz4rttyqs11jdukryoix5k', 'ZjRjZGUyNjhhOGI3ODIxNjBjNDJkNzRlODJkNzlkMzc4Zjc0ZmRiYjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5MmQwYWMwNGUwYzRjNzllZjM1NDkyY2ViYTNmODRiMmMxMDY0ZWU0In0=', '2019-11-11 19:21:16');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 
 -- Dumping structure for table test_db.myuser_loginrecords
@@ -326,15 +349,16 @@ CREATE TABLE IF NOT EXISTS `myuser_userrole` (
   `roleName` varchar(200) NOT NULL,
   `isActive` tinyint(1) NOT NULL,
   PRIMARY KEY (`roleId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table test_db.myuser_userrole: ~4 rows (approximately)
+-- Dumping data for table test_db.myuser_userrole: ~5 rows (approximately)
 /*!40000 ALTER TABLE `myuser_userrole` DISABLE KEYS */;
 INSERT INTO `myuser_userrole` (`roleId`, `roleName`, `isActive`) VALUES
 	(1, 'manager', 1),
 	(2, 'principal', 1),
 	(3, 'teacher', 1),
-	(4, 'clerk', 1);
+	(4, 'clerk', 1),
+	(5, 'student', 1);
 /*!40000 ALTER TABLE `myuser_userrole` ENABLE KEYS */;
 
 -- Dumping structure for table test_db.myuser_usersignup
@@ -399,6 +423,28 @@ INSERT INTO `principal_principle` (`name`, `email`, `gender`, `qualification`, `
 	('jitinprinci', 'jitin@interbitsolutions.com', 'Male', 'b.tech', 'pbkdf2_sha256$100000$mpQl03905Tcg$683eKn98REt8EkgawypVbyJMACVY92rGALbrEmlAbZ0=', '1992-07-27', '2019-10-17', '', 'zirakpur', '8445656758', 1, '2019-2020', 'FB_IMG_1556964066110.jpg', '', '', '', 'D24049k', '2019-10-17 19:11:59.404294', 'http://127.0.0.1/verifyuser/?email=jitin@interbitsolutions.com&token=pbkdf2_sha256$100000$RpWtI6olSDDQ$4ZLOS94h0WO4EgNnMwUfhgd3MjFfmEYRTa8BsEGghCk=', 2);
 /*!40000 ALTER TABLE `principal_principle` ENABLE KEYS */;
 
+-- Dumping structure for table test_db.students_section
+CREATE TABLE IF NOT EXISTS `students_section` (
+  `section_id` int(11) NOT NULL AUTO_INCREMENT,
+  `section_name` varchar(255) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `class_id_id` int(11) NOT NULL,
+  PRIMARY KEY (`section_id`),
+  KEY `students_section_class_id_id_a1e852b5_fk_students_` (`class_id_id`),
+  CONSTRAINT `students_section_class_id_id_a1e852b5_fk_students_` FOREIGN KEY (`class_id_id`) REFERENCES `students_student_class` (`class_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table test_db.students_section: ~6 rows (approximately)
+/*!40000 ALTER TABLE `students_section` DISABLE KEYS */;
+INSERT INTO `students_section` (`section_id`, `section_name`, `is_active`, `class_id_id`) VALUES
+	(1, 'A', 1, 1),
+	(2, 'B', 1, 1),
+	(3, 'A', 1, 2),
+	(4, 'B', 1, 2),
+	(5, 'A', 1, 3),
+	(6, 'B', 1, 3);
+/*!40000 ALTER TABLE `students_section` ENABLE KEYS */;
+
 -- Dumping structure for table test_db.students_student
 CREATE TABLE IF NOT EXISTS `students_student` (
   `name` varchar(255) DEFAULT NULL,
@@ -435,10 +481,21 @@ CREATE TABLE IF NOT EXISTS `students_student_class` (
   `class_name` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) NOT NULL,
   PRIMARY KEY (`class_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
--- Dumping data for table test_db.students_student_class: ~0 rows (approximately)
+-- Dumping data for table test_db.students_student_class: ~10 rows (approximately)
 /*!40000 ALTER TABLE `students_student_class` DISABLE KEYS */;
+INSERT INTO `students_student_class` (`class_id`, `class_name`, `is_active`) VALUES
+	(1, 'First', 1),
+	(2, 'second', 1),
+	(3, 'third', 1),
+	(4, 'fourth', 1),
+	(5, 'five', 1),
+	(6, 'six', 1),
+	(7, 'seven', 1),
+	(8, 'eight', 1),
+	(9, 'nine', 1),
+	(10, 'ten', 1);
 /*!40000 ALTER TABLE `students_student_class` ENABLE KEYS */;
 
 -- Dumping structure for table test_db.teacher_teacherdetail

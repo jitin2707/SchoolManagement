@@ -6,8 +6,9 @@ from django.contrib.auth.hashers import make_password,check_password
 from authorize import authcheck
 from myUser.models import UserSignup
 from principal.models import Principle
-# from teacher.models import SchoolTeacher
+from teacher.models import TeacherDetail
 from manager.forms import PrincipleForm
+from teacher.forms import TeacherForm
 from myUser.forms import UserSignupForm
 import datetime as dt
 
@@ -200,13 +201,13 @@ def createteacher(request):
     return render(request,"createteacher.html")
 
 def viewteacher(request):
-    data=Teacher.objects.all()
+    data=TeacherDetail.objects.all()
 
     return render(request,"viewteacher.html",{'d': data})
 
 def updateteacher(request):
     email=request.GET["id"]
-    data = Teacher.objects.get(email=email)
+    data = TeacherDetail.objects.get(email=email)
     if request.method == "POST":
         timage=request.FILES["timage"]
         form=TeacherForm(request.POST)
@@ -232,7 +233,7 @@ def updateteacher(request):
         mobile = request.POST["taddress"]
         session = request.POST["tsession"]
         image = img
-        updatedata = Teacher(email=email,name=name,gender=gender,qualifiaction=qualifiaction,
+        updatedata = TeacherDetail(email=email,name=name,gender=gender,qualifiaction=qualifiaction,
                              password=password,dob=dob,doj=doj,dol=dol, address=address,mbile=mobile,session=session,image=image)
         updatedata.save(update_fields=["name","gender","qualification","password","dob","doj","dol","address", "mobile","image"])
         return redirect('/manager/viewteacher')
@@ -241,7 +242,7 @@ def updateteacher(request):
 
 def deleteteacher(request):
     email=request.GET["id"]
-    data=Teacher.objects.get(email=email)
+    data=TeacherDetail.objects.get(email=email)
     data.delete()
     return redirect('/manager/viewteacher')
 

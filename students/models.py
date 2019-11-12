@@ -6,6 +6,8 @@ class Student_class(models.Model):
     class_id = models.AutoField(primary_key=True)
     class_name = models.CharField(max_length=255, default="", null=True)
     is_active = models.BooleanField(default=True)
+    def __str__(self):
+        return self.class_name
 
 class Student(models.Model):
     name = models.CharField(max_length=255, default="", null=True)
