@@ -157,7 +157,6 @@ def createteacher(request):
         f.password = request.POST["tpassword"]
         f.dob = request.POST["tdob"]
         f.doj = str(dt.date.today())
-        f.dol = request.POST["tdol"]
         f.address = request.POST["taddress"]
         f.mobile = request.POST["tmobile"]
         currentYear=dt.date.today()
@@ -169,16 +168,15 @@ def createteacher(request):
         # f.last_logout =
         f.role_id = 3
         otp ,y = emailsend.OtpSend()
-        f.otp=otp
-        f.otp_date_time = y
+
         email = request.POST["temail"]
         token = email[0:5] + request.POST['tmobile'][4:9] + otp
         token = make_password(token)
         token = token.replace("+", "")
-        f.userToken = token
+
         confirmationlink = "http://127.0.0.1/verifyuser/?email=" + email + "&token=" + token
-        f.verify_link =confirmationlink
-        f.isActive = True
+        f.class_asn_id = 9
+        f.status = True
         f.save()
         # to update in common signup database
         form1 = UserSignupForm(request.POST)
