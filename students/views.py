@@ -11,6 +11,7 @@ from manager.forms import PrincipleForm
 from students.forms import StudentForm
 from myUser.forms import UserSignupForm
 from parents.forms import ParentForm
+from students.models import Student,Student_class
 import datetime as dt
 
 

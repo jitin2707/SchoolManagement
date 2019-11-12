@@ -10,7 +10,6 @@ class Student_class(models.Model):
         return self.class_name
 
 class Section(models.Model):
-    class_id = models.ForeignKey(Student_class, on_delete=models.CASCADE)
     section_id = models.AutoField(primary_key=True)
     section_name = models.CharField(max_length=255,default="")
     is_active = models.BooleanField(default=True)
