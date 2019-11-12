@@ -91,6 +91,8 @@ def login(request):
                         return redirect("/principal/home")
                     elif data.roleId_id == 3 :
                         return redirect("/teacher/home")
+                    elif data.roleId_id == 3 :
+                        return redirect("/clerk/home")
 
                 else :
                     return render(request,"login.html",{'notverified':True})

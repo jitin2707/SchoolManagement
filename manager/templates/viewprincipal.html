@@ -1,49 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Principal Account</title>
+    <title>Principal Record</title>
 </head>
 <body>
 {% extends 'index.html' %}
 {% csrf_token %}
 {% block content %}
-<div >
-    <table border="2px" >
-        <tr>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Gender</td>
-            <td>Qualification</td>
-            <td>DOB</td>
-            <td>DOJ</td>
-            <td>DOL</td>
-            <td>Address</td>
-            <td>Mobile</td>
-            <td>Image</td>
+<div>
+<table class="table" border="2px"  align="center" cellspacing="50px">
+      <thead class="thead-dark" style="background-color:black;font-size:20px;">
+    <tr>
+        <th scope="col" >Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Qualification</th>
+        <th scope="col">Date Of Birth</th>
+        <th scope="col">Date Of Joining</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Address</th>
+        <th scope="col">Session</th>
+        <th scope="col">Image</th>
 
-        </tr>
-        {% if d %}
-        {% for i in d %}
-        <tr>
-            <td>{{i.name}}</td>
-            <td>{{i.email}}</td>
-            <td>{{i.gender}}</td>
-            <td>{{i.qualification}}</td>
-            <td>{{i.dob}}</td>
-            <td>{{i.doj}}</td>
-            <td>{{i.dol}}</td>
-            <td>{{i.address}}</td>
-            <td>{{i.mobile}}</td>
-            <td>{{i.image}}</td>
+    </tr>
+      </thead>
+ {% if d %}
+{% for i in d %}
 
-        </tr>
-        {% endfor %}
-        {% endif %}
-    </table>
+    <tr>
+        <td>{{i.email}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.qualification}}</td>
+        <td>{{i.dob}}</td>
+        <td>{{i.doj}}</td>
+        <td>{{i.mobile}}</td>
+        <td>{{i.address}}</td>
+        <td>{{i.session}}</td>
+        <td><img height="60px" width="60px" src="/media/{{i.image}}"></td>
 
+    </tr>
+{% endfor %}
+{% endif %}
+</table>
 </div>
-{% endblock %}
 
+{% endblock %}
 </body>
-</html>

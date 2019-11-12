@@ -1,122 +1,112 @@
-
 {% extends 'index.html' %}
-
 {% block content %}
-<div class="box" style=" background:url(../assets/images/feedback.png);  background-repeat: no-repeat; width:700px; height:1000px; position:relative; left:400px; top:70px;">
-<h1 style="text-align:center;">Update Data Form</h1>
+<h1 style="text-align:center;">Create Teacher Account </h1>
 </br>
 <form method="post" enctype="multipart/form-data" align="center">
     {% csrf_token %}
     {% if success %}
     <script type="text/javascript">
         alert('Details Updated Successfully');
-
     </script>
     {% endif %}
     {% if d %}
-
-      <div class="form-group">
-    <label for="name">Full Name</label>
-    <input type="text" class="form-control" value="{{d.name}}" id="tname" placeholder="Enter Full Name" name="tname">
-  </div>
-<br class="hero" style="position:relative; "  >
-      <div class="form-row" >
-        <div class="form-group col-md-6">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" value="{{d.email}}" id="temail" disabled name="temail">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="tpassword" placeholder="Enter  Password" name="tpassword" >
-        </div>
-		<div class="form-group col-md-6">
-          <label for="qualification">Qualification</label>
-          <input type="text" class="form-control" id="tqualification" value="{{d.qualification}}" placeholder="Enter qualification" name="tqualification" >
-        </div>
-      </div>
-    <div class="form-row" >
-	<div class="form-group col-md-6">
-          <label for="subject">Subject</label>
-          <input type="text" class="form-control" id="tsubject" name="tsubject" value="{{d.subject}}" placeholder="Enter subject here">
-        </div>
-	<div class="form-group col-md-6">
-             <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
-        <br/>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="tgender" id="gridRadios1" >
-          <label class="form-check-label" for="gridRadios1">
-            Male
-          </label>
-            <div class="form-check">
-             <input class="form-check-input" type="radio" name="tgender" id="gridRadios2" checked>
-          <label class="form-check-label" for="gridRadios1">
-            Female
-          </label>
-            </div>
-            <div class="form-check">
-             <input class="form-check-input" type="radio" name="tgender" id="gridRadios3"  >
-          <label class="form-check-label" for="gridRadios1">
-            Others
-          </label>
-            </div>
-
-      </div>
-    </div>
-  </fieldset>
-
-          </div>
-         <div class="form-group col-md-6">
-            <label for="">Mobile</label>
-            <input type="text" class="form-control" id="tmobile" value="{{d.mobile}}" placeholder="Enter Mobile Number" name="tmobile">
-          </div>
-		  </div>
-		  <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="dob">Date Of Birth</label>
-                <input type="date" class="form-control" id="tdob" value="{{d.dob}}" placeholder="Enter dob" name="tdob">
-            </div>
-			<div class="form-group col-md-6">
-                <label for="doj">Date Of Joining</label>
-                <input type="date" class="form-control" id="tdoj" value="{{d.doj}}" placeholder="Enter doj" name="tdoj">
-            </div>
-			<div class="form-group col-md-6">
-                <label for="dob">Date Of Leaving</label>
-                <input type="date" class="form-control" id="tdol" placeholder="Enterdol" name="tdol">
-            </div>
-    </div>
-
-   <div class="form-row">
-      <div class="form-group">
-        <label for="address">Address</label>
-        <input type="text" class="form-control" id="taddress" value="{{d.address}}" placeholder="Enter Address" name="taddress">
-      </div>
-
-
-        <div class="form-group col-md-6">
-          <label for="session">Session</label>
-          <input type="date" class="form-control" id="tsession" value="{{d.session}}" name="tsession" value="2011">
-        </div>
-
- <div>
-        <label for="image">ProfileImage</label>
-		<input type="file" id="timage" value="{{d.image}}" name="timage">
-
-</div></div>
-
-
-</br>
-
-      <input  type="submit" class="btn btn-primary" value="Submit" style="align:center;">
-
-
-</form>
-
-    </div>
+<div class="form-row">
+<div class="form-group col-md-6">
+<label for="name"> Full Name</label>
+<input type="text" class="form-control" id="tname" name="tname" style="text-align" value="{{d.name}}" required placeholder="Name here">
+</div>
+<div class="form-group col-md-6">
+<label for="email">Email</label>
+<input type="text" class="form-control" id="temail" name="temail" value="{{d.email}}" style="text-align" required="">
+</div>
 </div>
 
-{% endif %}
 
+<div class="form-row">
+<div class="form-group col-md-3">
+<label for="password">Password</label>
+<input type="text" class="form-control" id="tpassword"  name="tpassword" style="text-align" required="">
+</div>
+<div class="form-group col-md-3">
+<label for="qualification">Qualification</label>
+    <select class="form-control" id="tqualification"  name="tqualification" value="{{d.tqualification}}" style="text-align" required="">
+        <option>Btech/BE</option>
+        <option>Diploma</option>
+        <option>MSC</option>
+        <option>MA</option>
+        <option>MCOM</option>
+        <option>BSC</option>
+        <option>BA</option>
+        <option>BCOM</option>
+        <option>PHD</option>
+        <option>Mtech/ME</option>
+        <option>B.Ed</option>
+        <option>JBT</option>
+
+    </select>
+</div>
+<div class="form-group col-md-3">
+<label for="subject">Subject</label>
+<input type="text" class="form-control" id="tsubject" name="tsubject" value="{{d.tsubject}}" style="text-align" required="">
+</div>
+<div class="form-group col-md-3">
+<label for="mobile">Mobile</label>
+<input type="text" class="form-control" id="tmobile"  name="tmobile" value="{{d.mobile}}" style="text-align" required="">
+</div>
+</div>
+
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+    <div class="form-check form-check-inline">
+        <label for="gender">Gender</label></br>
+        <input type="radio" id="tgenderm" name="tgender" value="male">Male &nbsp;&nbsp;
+        <input type="radio" id="tgenderf" name="tgender" value="female">Female &nbsp;&nbsp;
+        <input type="radio" id="tgendero" name="tgender" value="others">Others
+    </div>
+    </div>
+<div class="form-group col-md-3">
+<label for="dob">Date of Birth</label>
+<input type="date" class="form-control" id="tdob" name="tdob" value="{{d.dob}}" style="text-align" required="">
+</div>
+<div class="form-group col-md-3">
+<label for="doj">Date of Joining</label>
+<input type="date" class="form-control" id="tdoj" name="tdoj" value="{{d.doj}}" style="text-align" required="">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group col-md-6">
+<label for="address">Address</label>
+<input type="text" class="form-control" id="taddress" name="taddress" value="{{d.address}}" style="text-align" required="">
+</div>
+<div class="form-group col-md-3">
+<label for="session">Session</label>
+<input type="date" class="form-control" id="tsession" name="tsession" value="{{d.session}}" style="text-align" required="">
+</div>
+    <div class="form-group col-md-3">
+<label for="dol">Date Of Leaving</label>
+<input type="date" class="form-control" id="tdol" name="tdol" style="text-align">
+</div>
+</div>
+<div class="form-group col-md-6">
+<div class="custom-file">
+<input type="file" class="custom-file-input" style="text-align" id="timage"><img height="60px" width="60px" src="/media/{{d.image}}">
+<label class="custom-file-la bel" for="image" aria-describedby="inputGroupFileAddon02">Choose Image</label>
+</div>
+</div>
+
+<br>
+<div align="center" class="form-group col-md-12">
+<input type="submit"  value="Submit">
+</div>
+</form>
+</br>
+</br>
+<div align="center" class="form-group col-md-12">
+
+    <a  href="/manager/viewteacher/">View Teacher Records</a>
+</div>
+{% endif %}
 {% endblock %}
+
+
