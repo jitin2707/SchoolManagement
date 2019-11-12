@@ -6,7 +6,7 @@ class ParentForm(forms.ModelForm):
     class Meta():
         model =Parents
         exclude =["name","email","password","address","mobile","is_active","image","last_login_time",
-                  "last_login_date","last_logout","role"]
+                  "last_login_date","last_logout","role","student_id"]
 
 
 

@@ -54,14 +54,18 @@ def createStudent(request):
         f.save()
 
         #to update in parent table
+        pemail = request.POST["sparent_email"]
+        data =Student.objects.get(parent_email=pemail)
         form3 = ParentForm(request.POST)
         f = form3.save(commit=False)
         f.name = request.POST["sparent_name"]
-        f.email = request.POST["sparent_email"]
+        f.email = pemail
         f.password = request.POST["spassword"]
         f.address = request.POST["saddress"]
         f.mobile = request.POST["smobile"]
+        f.student_id_id = data.admission_id
         f.is_active = True
+
         f.role_id = 6
         f.save()
 
