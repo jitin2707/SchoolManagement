@@ -18,6 +18,7 @@ def createStudent(request):
     if request.method == "POST":
         form=StudentForm(request.POST)
         f=form.save(commit=False)
+        simage = None
         try:
             if request.FILES["simage"]:
                 my_file = request.FILES["simage"]
@@ -45,7 +46,7 @@ def createStudent(request):
         f.parent_name =request.POST["sparent_name"]
         otp ,y = emailsend.OtpSend()
         email = request.POST["semail"]
-        token = email[0:5] + request.POST['tmobile'][4:9] + otp
+        token = email[0:5] + request.POST['smobile'][4:9] + otp
         token = make_password(token)
         token = token.replace("+", "")
         confirmationlink = "http://127.0.0.1/verifyuser/?email=" + email + "&token=" + token
@@ -96,8 +97,13 @@ def createStudent(request):
         f.isVerified = False
         f.confirmationLink = confirmationlink
         f.isActive = True
-        f.roleId_id = 5
+        f.roleId_id = 6
         f.save()
         emailsend.sendemail("Confirmation Link", parente, confirmationlink)
-        return render(request, "createteacher.html", {'success': True})
-    return render(request,"createteacher.html")
+        return render(request, "createstudentparent.html", {'success': True})
+    return render(request,"createstudentparent.html")
+
+
+def viewstudent(request):
+    data = StudentForm.objects.all()
+    return render(request, "viewstudent.html", {'d': data})
