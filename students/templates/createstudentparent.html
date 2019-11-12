@@ -5,7 +5,7 @@
 <body>
 {% extends 'index.html' %}
 {% block content %}
-<h1 style="text-align:center;">Create Teacher Account </h1>
+<h1 style="text-align:center;">Create Student Account </h1>
 <br>
 <form method="post" enctype="multipart/form-data" align="center">
     {% csrf_token %}
@@ -19,11 +19,11 @@
 <label for="name">Student Full Name</label>
 <input type="text" class="form-control" id="sname" name="sname" style="text-align" required placeholder="Name here">
 </div>
-<div class="form-group col-md-3">
+<div class="form-group col-md-6">
 <label for="email">Student Email</label>
 <input type="email" class="form-control" id="semail" name="semail" value="@gmail.com" style="text-align" required="">
 </div>
-<div class="form-group col-md-3">
+<div class="form-group col-md-6">
 <label for="password">Password</label>
 <input type="text" class="form-control" id="spassword"  name="spassword" style="text-align" required="">
 </div>
@@ -32,16 +32,20 @@
 <div class="form-row">
 <div class="form-group col-md-6">
 <label for="name"> Parent,s Name</label>
-    <p>Either Father or Mother</p>
-<input type="text" class="form-control" id="pname" name="pname" style="text-align" required placeholder="Name here">
+
+<input type="text" class="form-control" id="sparent_name" name="sparent_name" style="text-align" required placeholder="Name here">
 </div>
 <div class="form-group col-md-6">
 <label for="email"> Parent's Email</label>
-<input type="email" class="form-control" id="pemail" name="pemail" value="@gmail.com" style="text-align" required="">
+<input type="email" class="form-control" id="sparent_email" name="sparent_email" value="@gmail.com" style="text-align" required="">
 </div>
-<div class="form-group col-md-3">
+<div class="form-group col-md-6">
 <label for="password">Password</label>
 <input type="text" class="form-control" id="cpassword"  name="cpassword" style="text-align" required="">
+</div>
+    <div class="form-group col-md-3">
+<label for="dob">Date of Birth</label>
+<input type="date" class="form-control" id="sdob" name="sdob" style="text-align" required="">
 </div>
 </div>
 
@@ -49,12 +53,16 @@
 
 <div class="form-row">
 <div class="form-group col-md-3">
-<label for="qualification">Admission Year</label>
-   <input type="date" class="form-control" id="sadmissionyear"  name="sadmissionyear" value="2010" style="text-align" required="">
+<label for="admissionyear">Admission Year</label>
+   <input type="date" class="form-control" id="sadmissionyear"  name="sadmission_year" value="2010" style="text-align" required="">
        </div>
 <div class="form-group col-md-3">
-<label for="subject">Admission Class</label>
-<input type="text" class="form-control" id="sadmissionclass" name="sadmissionclass" style="text-align" required="">
+<label for="admissionclass">Admission Class</label>
+<input type="text" class="form-control" id="sadmissionclass" name="sadmission_class" style="text-align" required="">
+</div>
+    <div class="form-group col-md-3">
+<label for="classid"> Class ID</label>
+<input type="text" class="form-control" id="sclass_id" name="sclass_id" style="text-align" required="">
 </div>
 <div class="form-group col-md-3">
 <label for="mobile">Mobile</label>
@@ -72,13 +80,10 @@
         <input type="radio" id="sgendero" name="sgender" value="others">Others
     </div>
     </div>
-<div class="form-group col-md-3">
-<label for="dob">Date of Birth</label>
-<input type="date" class="form-control" id="sdob" name="sdob" style="text-align" required="">
-</div>
-<div class="form-group col-md-3">
+
+<div class="form-group col-md-6">
 <label for="section_id">Section ID</label>
-<input type="text" class="form-control" id="ssectionid" name="ssectionid" style="text-align" required="">
+<input type="text" class="form-control" id="ssection_id" name="ssection_id" style="text-align" required="">
 </div>
 </div>
 <div class="form-row">
