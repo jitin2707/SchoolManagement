@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^principal/',include('principal.urls')),
     url(r'^teacher/', include('teacher.urls')),
     url(r'^clerk/', include('clerical.urls')),
+    url(r'^student/', include('students.urls')),
     url(r'^error404/$',views.error404),
     url(r'^logout/$',views.logout),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
