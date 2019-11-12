@@ -12,6 +12,7 @@ import re,uuid,socket
 # Create your views here.
 def base(request):
     return render(request,"base.html")
+
 def usersignup(request):
     if request.method=="POST":
         form = UserSignupForm(request.POST)
@@ -95,6 +96,8 @@ def login(request):
                         return redirect("/clerk/home")
                     elif data.roleId_id == 5 :
                         return redirect("/student/home")
+                    elif data.roleId_id == 6:
+                        return redirect("/parents/home")
 
                 else :
                     return render(request,"login.html",{'notverified':True})

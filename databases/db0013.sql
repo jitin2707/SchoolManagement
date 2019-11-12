@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `auth_permission` (
 -- Dumping data for table test_db.auth_permission: ~48 rows (approximately)
 /*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
 INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALUES
-	(1, 'Can add log entry', 1, 'add_logentry'),
+	(1test_dbstudents_student_class, 'Can add log entry', 1, 'add_logentry'),
 	(2, 'Can change log entry', 1, 'change_logentry'),
 	(3, 'Can delete log entry', 1, 'delete_logentry'),
 	(4, 'Can add permission', 2, 'add_permission'),

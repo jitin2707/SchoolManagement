@@ -1,22 +1,24 @@
-{% extends 'index.html' %}
+{% extends 'index.html %}
 {% block content %}
-<h1 style="text-align:center;">Create Teacher Account </h1>
-<br>
-<form method="post" enctype="multipart/form-data" align="center">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Clerk Form</title>
+</head>
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {% if success %}
+    {% if d %}
     <script type="text/javascript">
-        alert('Details Updated Successfully');
+    alert("Data Updated successfully")
     </script>
     {% endif %}
 <div class="form-row">
 <div class="form-group col-md-6">
 <label for="name"> Full Name</label>
-<input type="text" class="form-control" id="tname" name="tname" style="text-align" required placeholder="Name here">
+<input type="text" class="form-control" id="cname" name="cname"  value="{{d.name}}" required placeholder="Name here">
 </div>
 <div class="form-group col-md-6">
 <label for="email">Email</label>
-<input type="text" class="form-control" id="temail" name="temail" value="@gmail.com" style="text-align" required="">
+<input type="text" class="form-control" id="cemail" name="cemail" value="{{d.cemail}}"  required="">
 </div>
 </div>
 
@@ -24,11 +26,11 @@
 <div class="form-row">
 <div class="form-group col-md-3">
 <label for="password">Password</label>
-<input type="text" class="form-control" id="tpassword"  name="tpassword" style="text-align" required="">
+<input type="text" class="form-control" id="cpassword"  name="cpassword" required="">
 </div>
 <div class="form-group col-md-3">
 <label for="qualification">Qualification</label>
-    <select class="form-control" id="tqualification"  name="tqualification" style="text-align" required="">
+    <select class="form-control" id="cqualification" value="{{d.cqualification}}" name="cqualification" required="">
         <option>Btech/BE</option>
         <option>Diploma</option>
         <option>MSC</option>
@@ -44,13 +46,10 @@
 
     </select>
 </div>
-<div class="form-group col-md-3">
-<label for="subject">Subject</label>
-<input type="text" class="form-control" id="tsubject" name="tsubject" style="text-align" required="">
-</div>
+
 <div class="form-group col-md-3">
 <label for="mobile">Mobile</label>
-<input type="text" class="form-control" id="tmobile"  name="tmobile" value="+91" style="text-align" required="">
+<input type="text" class="form-control" id="cmobile"  value="{{d.cmobile}}" name="cmobile"  required="">
 </div>
 </div>
 
@@ -59,33 +58,33 @@
     <div class="form-group col-md-6">
     <div class="form-check form-check-inline">
         <label for="gender">Gender</label></br>
-        <input type="radio" id="tgenderm" name="tgender" value="male">Male &nbsp;&nbsp;
-        <input type="radio" id="tgenderf" name="tgender" value="female">Female &nbsp;&nbsp;
-        <input type="radio" id="tgendero" name="tgender" value="others">Others
+        <input type="radio" id="cgenderm" name="cgender" value="male">Male &nbsp;&nbsp;&nbsp;
+        <input type="radio" id="cgenderf" name="cgender" value="female">Female &nbsp;&nbsp;
+        <input type="radio" id="cgendero" name="cgender" value="others">Others
     </div>
     </div>
 <div class="form-group col-md-3">
 <label for="dob">Date of Birth</label>
-<input type="date" class="form-control" id="tdob" name="tdob" style="text-align" required="">
+<input type="date" class="form-control"  value="{{d.cdob}}" id="cdob" name="cdob" required="">
 </div>
 <div class="form-group col-md-3">
 <label for="doj">Date of Joining</label>
-<input type="date" class="form-control" id="tdoj" name="tdoj" style="text-align" required="">
+<input type="date" class="form-control" id="cdoj" name="cdoj" value="{{d.cdoj}}" required="">
 </div>
 </div>
 <div class="form-row">
 <div class="form-group col-md-6">
 <label for="address">Address</label>
-<input type="text" class="form-control" id="taddress" name="taddress" style="text-align" required="">
+<input type="text" class="form-control" id="caddress" name="caddress" value="{{d.caddress}}" required="">
 </div>
 <div class="form-group col-md-6">
 <label for="session">Session</label>
-<input type="date" class="form-control" id="tsession" name="tsession" value="2010" style="text-align" required="">
+<input type="date" class="form-control" id="csession" name="csession" value="{{d.csession}}" required="">
 </div>
 </div>
 <div class="form-group col-md-6">
 <div class="custom-file">
-<input type="file" class="custom-file-input" style="text-align" id="timage">
+<input type="file" class="custom-file-input" id="cimage" name="cimage"><img src="/media/{{d.cimage}}">
 <label class="custom-file-la bel" for="image" aria-describedby="inputGroupFileAddon02">Choose Image</label>
 </div>
 </div>
@@ -95,11 +94,11 @@
 <input type="submit"  value="Submit">
 </div>
 </form>
-<br>
-<br>
+</br>
+</br>
 <div align="center" class="form-group col-md-12">
 
-    <a  href="/manager/viewteacher/">View Teacher Records</a>
+    <a  href="/clerk/viewclerk/">View Clerk Records</a>
 </div>
 {% endblock %}
 
