@@ -3,11 +3,6 @@ from miscellaneous import emailsend,myconstants
 from authorize import authcheck
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.hashers import make_password,check_password
-from authorize import authcheck
-from myUser.models import UserSignup
-from principal.models import Principle
-from teacher.models import TeacherDetail
-from manager.forms import PrincipleForm
 from students.forms import StudentForm
 from myUser.forms import UserSignupForm
 from parents.forms import ParentForm
@@ -107,3 +102,5 @@ def createStudent(request):
 def viewstudent(request):
     data = StudentForm.objects.all()
     return render(request, "viewstudent.html", {'d': data})
+
+

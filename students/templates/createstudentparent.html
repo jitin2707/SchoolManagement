@@ -1,12 +1,8 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Student Registration</title>
-</head>
-<body>
 {% extends 'index.html' %}
 {% block content %}
 <h1 style="text-align:center;">Create Student Account </h1>
 <br>
+
 <form method="post" enctype="multipart/form-data" align="center">
     {% csrf_token %}
     {% if success %}
@@ -114,5 +110,3 @@
 
 
 
-</body>
-</html>
