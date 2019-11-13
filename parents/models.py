@@ -1,5 +1,7 @@
 from django.db import models
 from myUser.models import UserRole
+from students.models import Student
+
 # Create your models here.
 
 
@@ -15,4 +17,4 @@ class Parents(models.Model):
     last_login_date = models.CharField(max_length=255, default="", null=True)
     last_logout = models.CharField(max_length=255, default="", null=True)
     role = models.ForeignKey(UserRole, on_delete=models.CASCADE)
-
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
