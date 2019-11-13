@@ -19,7 +19,7 @@ def principal(request):
             data = UserSignup.objects.get(userEmail=emailid)
             data2 = Principle.objects.get(email=emailid)
 
-            return render(request,"principal.html",{'d':data,'p':data2})
+            return render(request,"principal.html",{'d':data,'p':data2,'t':'Principal'})
         else :
             authinfo,message = authdata
             if message == "Invalid_User":

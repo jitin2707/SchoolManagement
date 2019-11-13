@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class UserRole(models.Model):
     roleId=models.AutoField(primary_key=True)
@@ -34,6 +35,7 @@ class LoginRecords(models.Model):
     userEmail = models.CharField(max_length=255,default="",null=True)
     ipAddress = models.CharField(max_length=255,default="",null=True)
     macAddress = models.CharField(max_length=255,default="",null=True)
+
 
 
 

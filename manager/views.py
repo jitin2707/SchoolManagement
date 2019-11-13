@@ -39,7 +39,7 @@ def manager(request):
         if authdata== True :
             emailid = request.session['emailid']
             data = UserSignup.objects.get(userEmail=emailid)
-            return render(request,"index.html",{'d':data})
+            return render(request,"index.html",{'d':data,'t':'Management'})
         else :
             authinfo,message = authdata
             if message == "Invalid_User":
@@ -191,7 +191,7 @@ def createteacher(request):
         f.isVerified = False
         f.confirmationLink = confirmationlink
         f.isActive = True
-        f.roleId_id = 2
+        f.roleId_id = 3
         f.save()
         emailsend.sendemail("Confirmation Link", email, confirmationlink)
         return render(request,"createteacher.html",{'success':True})

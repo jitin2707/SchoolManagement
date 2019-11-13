@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from miscellaneous import emailsend,myconstants
 from myUser.models import UserSignup
 from authorize import authcheck
+from teacher.models import TeacherDetail
 
 def teacherhome(request):
     return render(request,"teacher.html")
@@ -12,7 +13,9 @@ def teacher(request):
         if authdata== True :
             emailid = request.session['emailid']
             data = UserSignup.objects.get(userEmail=emailid)
-            return render(request,"index.html",{'d':data})
+            data2 = TeacherDetail.objects.get(email=emailid)
+            print(data2)
+            return render(request,"teacher.html",{'d':data,'p':data2,'t':'Teacher'})
         else :
             authinfo,message = authdata
             if message == "Invalid_User":

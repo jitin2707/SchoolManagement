@@ -36,3 +36,6 @@ class Student(models.Model):
     last_logout = models.CharField(max_length=255, default="", null=True)
     role = models.ForeignKey(UserRole, on_delete=models.CASCADE)
 
+
+
+

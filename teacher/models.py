@@ -1,6 +1,6 @@
 from django.db import models
 from myUser.models import UserRole
-from students.models import Student_class
+from students.models import Student_class,Section
 # Create your models here.
 class TeacherDetail(models.Model):
     name = models.CharField(max_length=255, default="", null=True)
@@ -23,3 +23,12 @@ class TeacherDetail(models.Model):
     role = models.ForeignKey(UserRole, on_delete=models.CASCADE)
     class_asn = models.ForeignKey(Student_class, on_delete=models.CASCADE)
 
+
+class TimeTable(models.Model):
+    classid= models.ForeignKey(Student_class, on_delete=models.CASCADE)
+    section= models.ForeignKey(Section, on_delete=models.CASCADE)
+    table_date=models.CharField(max_length=255,default="")
+    table_day=models.CharField(max_length=255,default="")
+    time_slot=models.CharField(max_length=255,default="")
+    subject=models.CharField(max_length=255,default="")
+    teacher=models.ForeignKey(TeacherDetail, on_delete=models.CASCADE)
