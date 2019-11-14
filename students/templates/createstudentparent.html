@@ -13,7 +13,7 @@
 <div class="form-row">
 <div class="form-group col-md-6">
 <label for="name">Student Full Name</label>
-<input type="text" class="form-control" id="sname" name="sname" style="text-align" required placeholder="Name here">
+<input type="text" class="form-control" id="sname" name="sname"  required placeholder="Name here">
 </div>
 <div class="form-group col-md-6">
 <label for="email">Student Email</label>
@@ -35,10 +35,7 @@
 <label for="email"> Parent's Email</label>
 <input type="email" class="form-control" id="sparent_email" name="sparent_email" value="@gmail.com" style="text-align" required="">
 </div>
-<div class="form-group col-md-6">
-<label for="password">Password</label>
-<input type="text" class="form-control" id="cpassword"  name="cpassword" style="text-align" required="">
-</div>
+
     <div class="form-group col-md-3">
 <label for="dob">Date of Birth</label>
 <input type="date" class="form-control" id="sdob" name="sdob" style="text-align" required="">
@@ -79,8 +76,10 @@
 
 <div class="form-group col-md-6">
 <label for="section_id">Section ID</label>
-<input type="text" class="form-control" id="ssection_id" name="ssection_id" style="text-align" required="">
-</div>
+    <select id="ssection_id" name="ssection_id">
+        <option value="7">A</option>
+        <option value="8">B</option>
+    </select>
 </div>
 <div class="form-row">
 <div class="form-group col-md-6">

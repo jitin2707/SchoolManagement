@@ -6,8 +6,8 @@ import clerical.views
 app_name = 'principal'
 urlpatterns = [
     url(r'^home/$',views.principal),
-    url(r'^createclerk/',clerical.views.createclerk),
-    url(r'^viewclerk/', clerical.views.viewclerk),
-    url(r'^deleteclerk/',clerical.views.deleteclerk),
+    # url(r'^createclerk/',clerical.views.createclerkform),
+    # url(r'^viewclerk/', clerical.views.viewclerk),
+    # url(r'^deleteclerk/',clerical.views.deleteclerk),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
