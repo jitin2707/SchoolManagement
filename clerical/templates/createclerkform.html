@@ -1,6 +1,6 @@
 {% extends 'index.html' %}
 {% block content %}
-<h1 style="text-align:center;">Create Teacher Account </h1>
+<h1 style="text-align:center;color:black;">Create Clerk Account </h1>
 </br>
 <form method="post" enctype="multipart/form-data" align="center">
     {% csrf_token %}
@@ -92,11 +92,11 @@
 <input type="submit"  value="Submit">
 </div>
 </form>
-</br>
-</br>
+<br>
+<br>
 <div align="center" class="form-group col-md-12">
 
-    <a  href="/clerk/viewclerk/">View Clerk Records</a>
+    <a  href="/clerical/viewclerk/">View Clerk Records</a>
 </div>
 {% endblock %}
 

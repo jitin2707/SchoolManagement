@@ -105,7 +105,44 @@ def createStudent(request):
 
 
 def viewstudent(request):
-    data = StudentForm.objects.all()
+    data = Student.objects.all()
     return render(request, "viewstudent.html", {'d': data})
+
+
+def updatestudent(request):
+    email = request.GET["id"]
+    data = Student.objects.get(email=email)
+    if request.method == "POST":
+        simage = request.FILES["simage"]
+        form = StudentForm(request.POST)
+        img = simage
+        try:
+            if request.FILES["simage"]:
+                my_file = request.FILES["simage"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                img = fs.url(file_name)
+                img = my_file
+        except:
+            pass
+        name = request.POST["sname"]
+        email = email
+        gender = request.POST["sgender"]
+        admission_year = request.POST["sadmission_year"]
+        admission_class = request.POST["sadmission_class"]
+        password = make_password(request.POST["spassword"])
+        dob = request.POST["sdob"]
+        section_id_id = request.POST["ssection_id"]
+        address = request.POST["saddress"]
+        mobile = request.POST["smobile"]
+        image = img
+        updatedata = Student(email=email, name=name, gender=gender, admission_class=admission_class,admission_year=admission_year,
+                           password=password, dob=dob, section_id_id=section_id_id,address=address, mbile=mobile,
+                           image=image)
+        updatedata.save(
+            update_fields=["name", "gender", "admission_class", "password", "dob", "admission_year", "dol", "address", "mobile",
+                           "section_id_id","image"])
+        return redirect('/students/viestudent')
+    return render(request, "updatestudent.html", {'d': data})
 
 

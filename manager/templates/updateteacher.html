@@ -45,10 +45,35 @@
 
     </select>
 </div>
-<div class="form-group col-md-3">
+  <div class="form-group col-md-3">
 <label for="subject">Subject</label>
-<input type="text" class="form-control" id="tsubject" name="tsubject" value="{{d.tsubject}}" style="text-align" required="">
+    <select class="form-control" id="tsubject"  name="tsubject" value="{{d.subject}}" style="text-align;padding:8px " required="">
+        <option>English</option>
+        <option>Hindi</option>
+        <option>Mathematics</option>
+        <option>Science</option>
+        <option>Social Science</option>
+        <option>Sanskrit</option>
+        <option>Physics</option>
+        <option>Maths(non medical</option>
+        <option>Biology(medical)</option>
+        <option>Chemistry</option>
+        <option>Physical</option>
+        <option>IT(+1)</option>
+        <option>IP(+2)</option>
+        <option>Economics</option>
+        <option>Business Studies</option>
+        <option>Hindi(10+1+2)</option>
+        <option>Accountancy(10+1+2)</option>
+        <option>English(10+1+2)</option>
+        <option>Geography(10+1+2)</option>
+        <option>Political Science(10+1+2)</option>
+        <option>History(10+1+2)</option>
+        <option>Psycology(10+1+2)</option>
+
+   </select>
 </div>
+
 <div class="form-group col-md-3">
 <label for="mobile">Mobile</label>
 <input type="text" class="form-control" id="tmobile"  name="tmobile" value="{{d.mobile}}" style="text-align" required="">
@@ -100,8 +125,8 @@
 <input type="submit"  value="Submit">
 </div>
 </form>
-</br>
-</br>
+<br>
+<br>
 <div align="center" class="form-group col-md-12">
 
     <a  href="/manager/viewteacher/">View Teacher Records</a>

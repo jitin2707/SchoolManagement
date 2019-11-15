@@ -35,7 +35,7 @@ def clerk(request):
         return redirect("/error404/?value=1")
 
 
-def createclerk(request):
+def createclerkform(request):
     if request.method == "POST":
         form = ClerkForm(request.POST)
         f = form.save(commit=False)
@@ -52,7 +52,6 @@ def createclerk(request):
         f.name = request.POST["cname"]
         f.email = request.POST["cemail"]
         f.gender = request.POST["cgender"]
-        f.subject = request.POST["csubject"]
         f.qualification = request.POST["cqualification"]
         f.password = request.POST["cpassword"]
         f.dob = request.POST["cdob"]
@@ -96,8 +95,8 @@ def createclerk(request):
         f.roleId_id = 4
         f.save()
         emailsend.sendemail("Confirmation Link", email, confirmationlink)
-        return render(request, "createclerk.html", {'success': True})
-    return render(request, "createclerk.html")
+        return render(request, "createclerkform.html", {'success': True})
+    return render(request, "createclerkform.html")
 
 
 def viewclerk(request):
@@ -129,13 +128,13 @@ def updateclerk(request):
         doj = request.POST["cdoj"]
         dol = request.POST["cdol"]
         address = request.POST["caddress"]
-        mobile = request.POST["caddress"]
+        mobile = request.POST["cmoblie"]
         session = request.POST["csession"]
         image = img
         updatedata = Clerk(email=email,name=name,gender=gender,qualifiaction=qualifiaction,
-                             password=password,dob=dob,doj=doj,dol=dol, address=address,mbile=mobile,session=session,image=image)
+                             password=password,dob=dob,doj=doj,dol=dol, address=address,mobile=mobile,session=session,image=image)
         updatedata.save(update_fields=["name","gender","qualification","password","dob","doj","dol","address", "mobile","image"])
-        return redirect('/manager/viewclerk')
+        return redirect('/clerical/viewclerk')
     return render(request,"updateclerk.html",{'d':data})
 
 
@@ -143,7 +142,7 @@ def deleteclerk(request):
     email=request.GET["id"]
     data=Clerk.objects.get(email=email)
     data.delete()
-    return redirect('/manager/viewclerk')
+    return redirect('/clerical/viewclerk')
 
 
 

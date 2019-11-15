@@ -6,8 +6,10 @@
 {% extends 'index.html' %}
 {% csrf_token %}
 {% block content %}
+<h1 style="text-align:center;">Clerk Accounts</h1>
+
 <div>
-<table class="table" border="2px"  align="center" cellspacing="50px">
+    <table class="table" border="2px"  align="center" cellspacing="50px">
       <thead class="thead-dark" style="background-color:black;font-size:20px;">
     <tr>
         <th scope="col" style="text-color:white;">Name</th>
@@ -38,8 +40,8 @@
         <td>{{i.address}}</td>
         <td>{{i.session}}</td>
         <td><img height="60px" width="60px" src="/media/{{i.image}}"></td>
-        <td><a href="/manager/updateclerk/?id={{i.email}}">Edit</a></td>
-        <td><a href="/manager/deleteclerk/?id={{i.email}}">Delete</a></td>
+        <td><a href="/clerical/updateclerk/?id={{i.email}}">Edit</a></td>
+        <td><a href="/clerical/deleteclerk/?id={{i.email}}">Delete</a></td>
 
     </tr>
 {% endfor %}

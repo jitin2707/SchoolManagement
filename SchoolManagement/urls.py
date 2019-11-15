@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^manager/',include('manager.urls')),
     url(r'^principal/',include('principal.urls')),
     url(r'^teacher/', include('teacher.urls')),
-    url(r'^clerk/', include('clerical.urls')),
+    url(r'^clerical/', include('clerical.urls')),
     url(r'^student/', include('students.urls')),
     url(r'^error404/$',views.error404),
     url(r'^logout/$',views.logout),
