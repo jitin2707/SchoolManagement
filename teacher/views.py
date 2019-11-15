@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from miscellaneous import emailsend,myconstants
 from myUser.models import UserSignup
 from authorize import authcheck
-from teacher.models import TeacherDetail
+from teacher.models import TeacherDetail,TimeTable
+import datetime as dt
 
 def teacherhome(request):
     return render(request,"teacher.html")
@@ -25,3 +26,16 @@ def teacher(request):
     except:
         return redirect("/error404/?value=1")
 
+
+
+
+def viewtimetable(request):
+    if request.method=="POST":
+        classid = request.POST["id_class"]
+        section = request.POST["id_section"]
+        print("class is " + classid)
+        print("section is " + section)
+        data=TimeTable.objects.get(classid_id=classid,section_id=section,time_slot="9:00 - 9:45",table_day= "Monday")
+        data2=TeacherDetail.objects.get(email=data.teacher_id)
+        print(data2.name)
+    return render(request, "chooseclass.html")

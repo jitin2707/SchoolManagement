@@ -27,8 +27,9 @@ class TeacherDetail(models.Model):
 class TimeTable(models.Model):
     classid= models.ForeignKey(Student_class, on_delete=models.CASCADE)
     section= models.ForeignKey(Section, on_delete=models.CASCADE)
-    table_date=models.CharField(max_length=255,default="")
     table_day=models.CharField(max_length=255,default="")
     time_slot=models.CharField(max_length=255,default="")
     subject=models.CharField(max_length=255,default="")
     teacher=models.ForeignKey(TeacherDetail, on_delete=models.CASCADE)
+
+

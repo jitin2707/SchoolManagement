@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block content %}
+<h1>Time Table</h1>
+
+<form method="post" enctype="multipart/form-data" align="center">
+    {% csrf_token %}
+<div class="form-group col-md-6">
+<label>Select Class</label>
+<select class="form-control" id="id_class"  name="id_class" style="text-align;padding:8px " >
+        <option value="1">First</option>
+        <option value="2">Second</option>
+        <option value="3">Third</option>
+        <option value="4">Fourth</option>
+        <option value="5">Fifth</option>
+        <option value="6">Sixth</option>
+        <option value="7">Seventh</option>
+        <option value="8">Eighth</option>
+        <option value="9">Ninth</option>
+        <option value="10">Tenth</option>
+    </select>
+</div>
+<div class="form-group col-md-6">
+<label >Select Section</label>
+<select class="form-control" id="id_section"  name="id_section" style="text-align;padding:8px " >
+        <option value="7">A</option>
+        <option value="8">B</option>
+    </select>
+</div>
+
+<br>
+<div align="center" class="form-group col-md-12">
+<input type="submit"  value="Submit">
+</div>
+</form>
+
+{% endblock %}
