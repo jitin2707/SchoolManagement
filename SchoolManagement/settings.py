@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'marketing',
     'clerical',
     'billing',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'SchoolManagement.urls'
@@ -81,6 +83,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'SchoolManagement.wsgi.application'
+
+
+AUTHENTICATION_BACKENDS=(
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 
 # Database
@@ -145,3 +155,13 @@ MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 10*60
 SESSION_SAVE_EVERY_REQUEST = True
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='307481223385-g54q6ji1pai99mpil3q8b74km22js6vb.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='D1xWP-Nc8gIpHIylwoMWKPHM'
+
+
+LOGIN_URL='/auth/login/google-oauth2/'
+LOGIN_REDIRECT_URL='/index/'
+LOGOUT_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'

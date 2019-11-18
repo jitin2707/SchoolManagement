@@ -23,8 +23,11 @@ from django.conf.urls.static import static
 
 
 
+
+
 urlpatterns = [
     url(r'^$',views.base),
+    url(r'^',include('social_django.urls',namespace="social")),
     url(r'^admin/', admin.site.urls),
     url(r'^signup/$',views.usersignup),
     url(r'^verifyuser/$',views.verify),
