@@ -1,6 +1,172 @@
 {% extends 'index.html' %}
 {% block content %}
 <h1>Time Table</h1>
+<form method="post">
+    {% csrf_token %}
+<table height="700px" width="900px" align="center" border="1px solid black"  cellspacing="0px">
+    <thead>
+    <th></th>
+    <th>9 AM-9:45 AM</th>
+    <th>9:45 AM-10:30 AM</th>
+    <th>10:30 AM-11:15 AM</th>
+    <th>11:15 AM-12:00 PM</th>
+    <th>12:00 PM-12:30 PM</th>
+    <th>12:30 PM-1:15 PM</th>
+    <th>1:15 PM-2:00 PM</th>
+    </thead>
+    <tr>
+        <th>Monday</th>
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td rowspan="6">
+        <label align="center">Lunch Break</label><br>
 
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+    </tr>
+
+       <tr>
+        <th>Tuesday</th>
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+           <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+    </tr>
+    <tr>
+    <th>Wednesday</th>
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+    </tr>
+    <tr>
+    <th>Thrusday</th>
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+    </tr>
+    <tr>
+        <th>Friday</th>
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+    </tr>
+    <tr>
+        <th>Saturday</th>
+
+        <td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td><td>
+        <label>Maths</label><br>
+    <label>A</label>
+    </td>
+    </tr>
+
+
+</table><br>
+<div id="update" align="center">
+        <input type="button" value="Update"><br>
+    </div>
+
+    <div id="save" align="center">
+        <input type="submit" value="Save"><br>
+    </div>
+</form>
 
 {% endblock %}

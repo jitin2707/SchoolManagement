@@ -39,3 +39,6 @@ def viewtimetable(request):
         data2=TeacherDetail.objects.get(email=data.teacher_id)
         print(data2.name)
     return render(request, "chooseclass.html")
+
+def viewtimetable(request):
+    return render(request,"viewtable.html")
