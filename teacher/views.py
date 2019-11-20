@@ -33,12 +33,18 @@ def viewtimetable(request):
     if request.method=="POST":
         classid = request.POST["id_class"]
         section = request.POST["id_section"]
-        print("class is " + classid)
-        print("section is " + section)
-        data=TimeTable.objects.get(classid_id=classid,section_id=section,time_slot="9:00 - 9:45",table_day= "Monday")
-        data2=TeacherDetail.objects.get(email=data.teacher_id)
-        print(data2.name)
+        data=TimeTable.objects.filter(classid_id=classid,section_id=section,table_day= "Monday")
+        data2 = TimeTable.objects.filter(classid_id=classid, section_id=section, table_day="Tuesday")
+        data3 = TimeTable.objects.filter(classid_id=classid, section_id=section, table_day="Wednesday")
+        data4 = TimeTable.objects.filter(classid_id=classid, section_id=section, table_day="Thursday")
+        data5 = TimeTable.objects.filter(classid_id=classid, section_id=section, table_day="Friday")
+        # data2=TeacherDetail.objects.get(email=data.teacher_id)
+        # print(data2.name)
+        for i in data :
+            print(i.subject)
+            print(i.teacher.name)
+            # data2=TeacherDetail.objects.get(email=i.teacher_id)
+            # print(data2.name)
+        return render(request,"viewtable.html",{'d':data,'t':data2,'w':data3,'th':data4,'f':data5})
     return render(request, "chooseclass.html")
 
-def viewtimetable(request):
-    return render(request,"viewtable.html")

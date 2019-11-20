@@ -11,152 +11,70 @@
     <th>10:30 AM-11:15 AM</th>
     <th>11:15 AM-12:00 PM</th>
     <th>12:00 PM-12:30 PM</th>
+
     <th>12:30 PM-1:15 PM</th>
     <th>1:15 PM-2:00 PM</th>
     </thead>
     <tr>
         <th>Monday</th>
-        <td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td>
-        <td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td>
-        <td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td rowspan="6">
-        <label align="center">Lunch Break</label><br>
+        {% for i in d %}
 
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
+        <td>
+        <label>{{i.subject}}</label><br>
+        <label>( {{i.teacher.name}} )</label>
+
     </td>
+
+
+        {% endfor %}
     </tr>
+
 
        <tr>
         <th>Tuesday</th>
+        {% for i in t %}
+
         <td>
-        <label>Maths</label><br>
-    <label>A</label>
+        <label>{{i.subject}}</label><br>
+    <label>( {{i.teacher.name}} )</label>
+
     </td>
-           <td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td>
+        {% endfor %}
     </tr>
     <tr>
     <th>Wednesday</th>
+        {% for i in w %}
+
         <td>
-        <label>Maths</label><br>
-    <label>A</label>
+        <label>{{i.subject}}</label><br>
+    <label>( {{i.teacher.name}} )</label>
+
     </td>
-        <td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td>
+        {% endfor %}
     </tr>
     <tr>
     <th>Thrusday</th>
+        {% for i in th %}
+
         <td>
-        <label>Maths</label><br>
-    <label>A</label>
+        <label>{{i.subject}}</label><br>
+    <label>( {{i.teacher.name}} )</label>
+
     </td>
-        <td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td>
+        {% endfor %}
     </tr>
     <tr>
         <th>Friday</th>
-        <td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td>
-        <td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td>
-    </tr>
-    <tr>
-        <th>Saturday</th>
+        {% for i in f %}
 
         <td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
-    </td><td>
-        <label>Maths</label><br>
-    <label>A</label>
+        <label>{{i.subject}}</label><br>
+    <label>( {{i.teacher.name}} )</label>
+
     </td>
+        {% endfor %}
     </tr>
+
 
 
 </table><br>
