@@ -17,16 +17,20 @@
     </thead>
     <tr>
         <th>Monday</th>
-        {% for i in d %}
+        {% if i.time_slot == "9:00 - 9:45" %}
 
         <td>
         <label>{{i.subject}}</label><br>
         <label>( {{i.teacher.name}} )</label>
 
     </td>
+        {% elif i.time_slot == "9:45 - 10:30" %}
+        <td>
+        <label>{{i.subject}}</label><br>
+        <label>( {{i.teacher.name}} )</label>
 
-
-        {% endfor %}
+    </td>
+        {% endif %}
     </tr>
 
 
